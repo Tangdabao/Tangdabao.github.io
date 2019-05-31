@@ -9,9 +9,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[应用主题]]></title>
+    <title><![CDATA[Ӧ������]]></title>
     <url>%2F2018%2F12%2F22%2FHexo%E4%BD%BF%E7%94%A8%E7%BB%8F%E5%8E%86%2F</url>
-    <content type="text"><![CDATA[应用主题Tangdabao 下载你喜欢的主题 我下载的是Next 如何应用你喜欢的主题 在终端窗口下，定位到 Hexo 站点目录下。使用 Git checkout 代码： $ cd your-hexo-site $ git clone https://github.com/iissnan/hexo-theme-next themes/next]]></content>
+    <content type="text"><![CDATA[Ӧ������Tangdabao ������ϲ�������� �����ص���Next ���Ӧ����ϲ�������� ���ն˴����£���λ�� Hexo վ��Ŀ¼�¡�ʹ�� Git checkout ���룺 $ cd your-hexo-site $ git clone https://github.com/iissnan/hexo-theme-next themes/next]]></content>
       <tags>
         <tag>Test</tag>
       </tags>
