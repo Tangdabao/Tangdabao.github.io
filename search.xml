@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nRF APP DownLoad]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
+    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
+      <tags>
+        <tag>nordic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nRF Sniffer User Guide]]></title>
     <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
     <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
