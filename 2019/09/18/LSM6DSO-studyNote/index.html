@@ -88,7 +88,7 @@
 <meta property="og:description" content="ST LSM6DSO Study Note LSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wak">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tangdabao.github.io/.io//Blog/blog/source/_posts/LSM6DSO-StudyNote/LSM6DSO_Pin_Connection.jpg">
-<meta property="og:updated_time" content="2019-09-18T09:02:01.610Z">
+<meta property="og:updated_time" content="2019-09-18T09:54:44.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSM6DSO_studyNote">
 <meta name="twitter:description" content="ST LSM6DSO Study Note LSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wak">
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  286 字
+                  446 字
                 </span>
               
 
@@ -403,10 +403,7 @@
 <li>特色功能：计步器、走路检测、计步</li>
 <li>中断：跌落检测、wakeUp检测、6D/4D检测、单双击检测</li>
 </ul>
-<hr>
-<h2 id="LS6DSO-Pin-Description"><a href="#LS6DSO-Pin-Description" class="headerlink" title="LS6DSO Pin Description"></a>LS6DSO Pin Description</h2><hr>
-<p><img src="/.io//Blog\blog\source\_posts\LSM6DSO-StudyNote\LSM6DSO_Pin_Connection.jpg" alt="Pin Connection"></p>
-<hr>
+<h2 id="LS6DSO-Pin-Description"><a href="#LS6DSO-Pin-Description" class="headerlink" title="LS6DSO Pin Description"></a>LS6DSO Pin Description</h2><p><img src="/.io//Blog\blog\source\_posts\LSM6DSO-StudyNote\LSM6DSO_Pin_Connection.jpg" alt="Pin Connection"></p>
 <table>
 <thead>
 <tr>
@@ -488,12 +485,37 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="LS6DSO-Operating-modes"><a href="#LS6DSO-Operating-modes" class="headerlink" title="LS6DSO  Operating modes"></a>LS6DSO  Operating modes</h2><hr>
-<ul>
+<h2 id="LSM6DSO-Operating-modes"><a href="#LSM6DSO-Operating-modes" class="headerlink" title="LSM6DSO  Operating modes"></a>LSM6DSO  Operating modes</h2><ul>
 <li>Accelerometer action &amp; Gyroscope in Power-Down or Sleep</li>
 <li>陀螺仪运行，加速度在Powen-down模式</li>
-<li>加速度计与陀螺仪都在ODR模式</li>
+<li>加速度计与陀螺仪都在ODR模式<h2 id="LSM6DSO初始化设置"><a href="#LSM6DSO初始化设置" class="headerlink" title="LSM6DSO初始化设置"></a>LSM6DSO初始化设置</h2></li>
+<li>设置模式</li>
+<li>设置输出速率</li>
+<li>设置量程</li>
+</ul>
+<h2 id="LSM6DSO-数据读取"><a href="#LSM6DSO-数据读取" class="headerlink" title="LSM6DSO 数据读取"></a>LSM6DSO 数据读取</h2><h3 id="状态寄存器读取"><a href="#状态寄存器读取" class="headerlink" title="状态寄存器读取"></a>状态寄存器读取</h3><ul>
+<li>STATUS_REG：<ul>
+<li>TDA:Senser内温度数据准备好</li>
+<li>GDA：Senser内陀螺仪的数据准备好</li>
+<li>XLDA：Senser内加速度计数据准备好</li>
+</ul>
+</li>
+</ul>
+<h3 id="中断读取"><a href="#中断读取" class="headerlink" title="中断读取"></a>中断读取</h3><h5 id="中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1-CTRL-amp-INT2-CTRL决定"><a href="#中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1-CTRL-amp-INT2-CTRL决定" class="headerlink" title="中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1_CTRL&amp;INT2_CTRL决定"></a>中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1_CTRL&amp;INT2_CTRL决定</h5><ul>
+<li>INT1_CTRL:<ul>
+<li>INT1_DRDY_G:陀螺仪数据中断</li>
+<li>INT1_DRDY_xl：加速度数据中断</li>
+</ul>
+</li>
+<li>INT2_CTRL:<ul>
+<li>INT2_DRDY_TEMP:温度数据中断</li>
+<li>INT2_DRDY_G：陀螺仪数据中断</li>
+<li>INT2_DRDY_xl：加速度数据中断</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据的读取："><a href="#数据的读取：" class="headerlink" title="数据的读取："></a>数据的读取：</h2><ul>
+<li>Senser Data = Output Data *Sensitivity（@FS）</li>
 </ul>
 
       
@@ -672,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ST-LSM6DSO-Study-Note"><span class="nav-number">1.</span> <span class="nav-text">ST LSM6DSO Study Note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO的参数与特性"><span class="nav-number">1.1.</span> <span class="nav-text">LSM6DSO的参数与特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS6DSO-Pin-Description"><span class="nav-number">1.2.</span> <span class="nav-text">LS6DSO Pin Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS6DSO-Operating-modes"><span class="nav-number">1.3.</span> <span class="nav-text">LS6DSO  Operating modes</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ST-LSM6DSO-Study-Note"><span class="nav-number">1.</span> <span class="nav-text">ST LSM6DSO Study Note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO的参数与特性"><span class="nav-number">1.1.</span> <span class="nav-text">LSM6DSO的参数与特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS6DSO-Pin-Description"><span class="nav-number">1.2.</span> <span class="nav-text">LS6DSO Pin Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO-Operating-modes"><span class="nav-number">1.3.</span> <span class="nav-text">LSM6DSO  Operating modes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO初始化设置"><span class="nav-number">1.4.</span> <span class="nav-text">LSM6DSO初始化设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO-数据读取"><span class="nav-number">1.5.</span> <span class="nav-text">LSM6DSO 数据读取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#状态寄存器读取"><span class="nav-number">1.5.1.</span> <span class="nav-text">状态寄存器读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断读取"><span class="nav-number">1.5.2.</span> <span class="nav-text">中断读取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1-CTRL-amp-INT2-CTRL决定"><span class="nav-number">1.5.2.0.1.</span> <span class="nav-text">中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1_CTRL&amp;INT2_CTRL决定</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的读取："><span class="nav-number">1.6.</span> <span class="nav-text">数据的读取：</span></a></li></ol></div>
             
 
           </div>
@@ -706,7 +728,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.5k</span>
+    <span title="Site words total count">1.6k</span>
   
 </div>
 
