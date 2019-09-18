@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[LSM6DSO_studyNote]]></title>
     <url>%2F2019%2F09%2F18%2FLSM6DSO-studyNote%2F</url>
-    <content type="text"><![CDATA[ST LSM6DSO Study NoteLSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃]]></content>
+    <content type="text"><![CDATA[ST LSM6DSO Study NoteLSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wakeUp检测、6D/4D检测、单双击检测]]></content>
       <tags>
         <tag>Senser</tag>
       </tags>
