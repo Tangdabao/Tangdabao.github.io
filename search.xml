@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LSM6DSO_studyNote]]></title>
+    <url>%2F2019%2F09%2F18%2FLSM6DSO-studyNote%2F</url>
+    <content type="text"><![CDATA[ST LSM6DSO Study NoteLSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃]]></content>
+      <tags>
+        <tag>Senser</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nRF APP DownLoad]]></title>
     <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
     <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
