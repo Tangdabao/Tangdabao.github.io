@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="ST LSM6DSO Study NoteLSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wake">
+<meta name="description" content="ST LSM6DSO Study Note LSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wak">
 <meta name="keywords" content="Senser">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LSM6DSO_studyNote">
 <meta property="og:url" content="https://tangdabao.github.io/2019/09/18/LSM6DSO-studyNote/index.html">
 <meta property="og:site_name" content="TangDabao_Blog">
-<meta property="og:description" content="ST LSM6DSO Study NoteLSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wake">
+<meta property="og:description" content="ST LSM6DSO Study Note LSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wak">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T06:07:53.438Z">
+<meta property="og:image" content="d:/Blog/blog/source/_posts/LSM6DSO_Pin_Connection.png">
+<meta property="og:updated_time" content="2019-09-18T07:04:15.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSM6DSO_studyNote">
-<meta name="twitter:description" content="ST LSM6DSO Study NoteLSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wake">
+<meta name="twitter:description" content="ST LSM6DSO Study Note LSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wak">
+<meta name="twitter:image" content="d:/Blog/blog/source/_posts/LSM6DSO_Pin_Connection.png">
 
 
 
@@ -352,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  90 字
+                  248 字
                 </span>
               
 
@@ -389,7 +391,8 @@
       
 
       
-        <h1 id="ST-LSM6DSO-Study-Note"><a href="#ST-LSM6DSO-Study-Note" class="headerlink" title="ST LSM6DSO Study Note"></a>ST LSM6DSO Study Note</h1><h2 id="LSM6DSO的参数与特性"><a href="#LSM6DSO的参数与特性" class="headerlink" title="LSM6DSO的参数与特性"></a>LSM6DSO的参数与特性</h2><ul>
+        <h1 id="ST-LSM6DSO-Study-Note"><a href="#ST-LSM6DSO-Study-Note" class="headerlink" title="ST LSM6DSO Study Note"></a>ST LSM6DSO Study Note</h1><hr>
+<h2 id="LSM6DSO的参数与特性"><a href="#LSM6DSO的参数与特性" class="headerlink" title="LSM6DSO的参数与特性"></a>LSM6DSO的参数与特性</h2><ul>
 <li>使用电压：1.71 -3.6V</li>
 <li>温度范围：-40 to +85℃</li>
 <li>封装：LGA-14L（2.5mm<em>3mm</em>0.83mm）</li>
@@ -400,6 +403,91 @@
 <li>特色功能：计步器、走路检测、计步</li>
 <li>中断：跌落检测、wakeUp检测、6D/4D检测、单双击检测</li>
 </ul>
+<hr>
+<h2 id="LS6DSO-Pin-Description"><a href="#LS6DSO-Pin-Description" class="headerlink" title="LS6DSO Pin Description"></a>LS6DSO Pin Description</h2><hr>
+<p><img src="D:\Blog\blog\source\_posts\LSM6DSO_Pin_Connection.png" alt=""></p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Name</th>
+<th>Mode 1 Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SDO/SAO</td>
+<td>如果SPI模式，数据输出（SDO）。如果IIC模式，设置芯片地址（SA0）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SDx</td>
+<td>连接到VDDIO或者GND，ST推荐连接到VDDIO</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SCx</td>
+<td>连接到VDDIO或者GND，ST推荐连接到VDDIO</td>
+</tr>
+<tr>
+<td>4</td>
+<td>INT1</td>
+<td>可编程中断，IIC/SPI配置</td>
+</tr>
+<tr>
+<td>5</td>
+<td>VDDIO</td>
+<td>为I/O供电的电源</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td>0 V supply</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GND</td>
+<td>0 V supply</td>
+</tr>
+<tr>
+<td>8</td>
+<td>VDD</td>
+<td>Power supply</td>
+</tr>
+<tr>
+<td>9</td>
+<td>INT2</td>
+<td>可编程中断/数据使能（DEN）</td>
+</tr>
+<tr>
+<td>10</td>
+<td>OCS_Aux</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>11</td>
+<td>SDO_Aux</td>
+<td>连接到VDD_IO或者断开连接</td>
+</tr>
+<tr>
+<td>12</td>
+<td>CS</td>
+<td>如果拉高：SPI被禁止、IIC使能；如果拉低：SPI使能，IIC禁止</td>
+</tr>
+<tr>
+<td>13</td>
+<td>SCL</td>
+<td>时钟线</td>
+</tr>
+<tr>
+<td>14</td>
+<td>SDA</td>
+<td>数据线</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -573,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ST-LSM6DSO-Study-Note"><span class="nav-number">1.</span> <span class="nav-text">ST LSM6DSO Study Note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO的参数与特性"><span class="nav-number">1.1.</span> <span class="nav-text">LSM6DSO的参数与特性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ST-LSM6DSO-Study-Note"><span class="nav-number">1.</span> <span class="nav-text">ST LSM6DSO Study Note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO的参数与特性"><span class="nav-number">1.1.</span> <span class="nav-text">LSM6DSO的参数与特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS6DSO-Pin-Description"><span class="nav-number">1.2.</span> <span class="nav-text">LS6DSO Pin Description</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -607,7 +695,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.3k</span>
+    <span title="Site words total count">1.4k</span>
   
 </div>
 
