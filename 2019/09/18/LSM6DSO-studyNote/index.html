@@ -88,7 +88,7 @@
 <meta property="og:description" content="ST LSM6DSO Study Note LSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wak">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tangdabao.github.io/.io//Blog/blog/source/_posts/LSM6DSO-StudyNote/LSM6DSO_Pin_Connection.jpg">
-<meta property="og:updated_time" content="2019-09-18T09:54:44.662Z">
+<meta property="og:updated_time" content="2019-09-18T10:12:33.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSM6DSO_studyNote">
 <meta name="twitter:description" content="ST LSM6DSO Study Note LSM6DSO的参数与特性 使用电压：1.71 -3.6V 温度范围：-40 to +85℃ 封装：LGA-14L（2.5mm3mm0.83mm） 接口：SPI、IIC FIFO：9kBytes 加速度计量程：2g/4g/8g/16g 陀螺仪量程：125/250/500/1000/2000 dps 特色功能：计步器、走路检测、计步 中断：跌落检测、wak">
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  446 字
+                  611 字
                 </span>
               
 
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -514,8 +514,55 @@
 </ul>
 </li>
 </ul>
-<h2 id="数据的读取："><a href="#数据的读取：" class="headerlink" title="数据的读取："></a>数据的读取：</h2><ul>
-<li>Senser Data = Output Data *Sensitivity（@FS）</li>
+<h2 id="数据的读取："><a href="#数据的读取：" class="headerlink" title="数据的读取："></a>数据的读取：</h2><p> Senser Data = Output Data *Sensitivity（@FS）</p>
+<h3 id="数据读取寄存器："><a href="#数据读取寄存器：" class="headerlink" title="数据读取寄存器："></a>数据读取寄存器：</h3><ul>
+<li>OUTX_H_A</li>
+<li>OUTX_L_A</li>
+<li>等等<h3 id="数据计算步骤："><a href="#数据计算步骤：" class="headerlink" title="数据计算步骤："></a>数据计算步骤：</h3></li>
+<li>从传感器中读取三轴寄存器值</li>
+<li>将2个字节的寄存器数据转换为有符号的16进制数值</li>
+<li>有符号的16进制数据乘以相对的Sensitivity<h3 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h3></li>
+</ul>
+<h5 id="LSM6DSO的ACC：量程为2G的情况下，Sensitivity-0-061mg-LSB"><a href="#LSM6DSO的ACC：量程为2G的情况下，Sensitivity-0-061mg-LSB" class="headerlink" title="LSM6DSO的ACC：量程为2G的情况下，Sensitivity = 0.061mg/LSB"></a>LSM6DSO的ACC：量程为2G的情况下，Sensitivity = 0.061mg/LSB</h5><h6 id="以下表格数据为量程2g状态下"><a href="#以下表格数据为量程2g状态下" class="headerlink" title="以下表格数据为量程2g状态下"></a>以下表格数据为量程2g状态下</h6><hr>
+<table>
+<thead>
+<tr>
+<th>Acceleration values</th>
+<th>OUTX_H_A (29h）</th>
+<th>OUTX_L_A (28h)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0g</td>
+<td>00</td>
+<td>00</td>
+</tr>
+<tr>
+<td>350mg</td>
+<td>16h</td>
+<td>69h</td>
+</tr>
+<tr>
+<td>1g</td>
+<td>40h</td>
+<td>09h</td>
+</tr>
+<tr>
+<td>-350mg</td>
+<td>E9h</td>
+<td>97h</td>
+</tr>
+<tr>
+<td>-1g</td>
+<td>BFh</td>
+<td>F7h</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>350mg = 0x1669H*0.061</li>
+<li>-350mg =0XE996h<em>0.061 = 0x1669 </em>0.061<h6 id="（因为是有符号的16进制，第一位如果为1那么数据为负数；16进制转换成10进制，取反加一即可）"><a href="#（因为是有符号的16进制，第一位如果为1那么数据为负数；16进制转换成10进制，取反加一即可）" class="headerlink" title="（因为是有符号的16进制，第一位如果为1那么数据为负数；16进制转换成10进制，取反加一即可）"></a>（因为是有符号的16进制，第一位如果为1那么数据为负数；16进制转换成10进制，取反加一即可）</h6></li>
 </ul>
 
       
@@ -694,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ST-LSM6DSO-Study-Note"><span class="nav-number">1.</span> <span class="nav-text">ST LSM6DSO Study Note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO的参数与特性"><span class="nav-number">1.1.</span> <span class="nav-text">LSM6DSO的参数与特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS6DSO-Pin-Description"><span class="nav-number">1.2.</span> <span class="nav-text">LS6DSO Pin Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO-Operating-modes"><span class="nav-number">1.3.</span> <span class="nav-text">LSM6DSO  Operating modes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO初始化设置"><span class="nav-number">1.4.</span> <span class="nav-text">LSM6DSO初始化设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO-数据读取"><span class="nav-number">1.5.</span> <span class="nav-text">LSM6DSO 数据读取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#状态寄存器读取"><span class="nav-number">1.5.1.</span> <span class="nav-text">状态寄存器读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断读取"><span class="nav-number">1.5.2.</span> <span class="nav-text">中断读取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1-CTRL-amp-INT2-CTRL决定"><span class="nav-number">1.5.2.0.1.</span> <span class="nav-text">中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1_CTRL&amp;INT2_CTRL决定</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的读取："><span class="nav-number">1.6.</span> <span class="nav-text">数据的读取：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ST-LSM6DSO-Study-Note"><span class="nav-number">1.</span> <span class="nav-text">ST LSM6DSO Study Note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO的参数与特性"><span class="nav-number">1.1.</span> <span class="nav-text">LSM6DSO的参数与特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS6DSO-Pin-Description"><span class="nav-number">1.2.</span> <span class="nav-text">LS6DSO Pin Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO-Operating-modes"><span class="nav-number">1.3.</span> <span class="nav-text">LSM6DSO  Operating modes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO初始化设置"><span class="nav-number">1.4.</span> <span class="nav-text">LSM6DSO初始化设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM6DSO-数据读取"><span class="nav-number">1.5.</span> <span class="nav-text">LSM6DSO 数据读取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#状态寄存器读取"><span class="nav-number">1.5.1.</span> <span class="nav-text">状态寄存器读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断读取"><span class="nav-number">1.5.2.</span> <span class="nav-text">中断读取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1-CTRL-amp-INT2-CTRL决定"><span class="nav-number">1.5.2.0.1.</span> <span class="nav-text">中断分为两个可配置中断：INT1、INT2，两个中断都可以分别配置成不同的中断源，根据INT1_CTRL&amp;INT2_CTRL决定</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的读取："><span class="nav-number">1.6.</span> <span class="nav-text">数据的读取：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据读取寄存器："><span class="nav-number">1.6.1.</span> <span class="nav-text">数据读取寄存器：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据计算步骤："><span class="nav-number">1.6.2.</span> <span class="nav-text">数据计算步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举个例子："><span class="nav-number">1.6.3.</span> <span class="nav-text">举个例子：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#LSM6DSO的ACC：量程为2G的情况下，Sensitivity-0-061mg-LSB"><span class="nav-number">1.6.3.0.1.</span> <span class="nav-text">LSM6DSO的ACC：量程为2G的情况下，Sensitivity = 0.061mg/LSB</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#以下表格数据为量程2g状态下"><span class="nav-number">1.6.3.0.1.1.</span> <span class="nav-text">以下表格数据为量程2g状态下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（因为是有符号的16进制，第一位如果为1那么数据为负数；16进制转换成10进制，取反加一即可）"><span class="nav-number">1.6.3.0.1.2.</span> <span class="nav-text">（因为是有符号的16进制，第一位如果为1那么数据为负数；16进制转换成10进制，取反加一即可）</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -728,7 +775,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.6k</span>
+    <span title="Site words total count">1.8k</span>
   
 </div>
 
