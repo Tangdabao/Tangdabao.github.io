@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[stm32l0_StudyNote]]></title>
+    <url>%2F2019%2F09%2F21%2Fstm32l0-StudyNote%2F</url>
+    <content type="text"><![CDATA[STM32L0系列 - LPTIMLPTIM介绍 LPTIM是一个16位的定时器，可多个时钟源，可在所有电源模式下（除Standby模式下）可以保持运行状态，几遍没有内部时钟源，LPTIM已经可以运行。主要用于脉冲计数器、低功耗模式下唤醒、超时功能等。 LPTIM的主要特性 16位的递增计数器 3位预分频器，可以采用8种分频（1、2、4、8、16、32、64、128） 可选时钟源 内部时钟源：LSE、LSI、HSI16或者APB时钟 ULPTIM输入的外部时钟源（计数器使用） 16位的ARR自动重载寄存器 16位比较寄存器 连续、单次触发模式 可选软件、硬件输入触发 可编程的数字干扰滤波器 可 配置的输出：脉冲、PWM 可配置I/O的极性 编码器模式 LPTIM框图]]></content>
+      <tags>
+        <tag>STM32L0</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Test image]]></title>
     <url>%2F2019%2F09%2F18%2FTest-image%2F</url>
     <content type="text"></content>
