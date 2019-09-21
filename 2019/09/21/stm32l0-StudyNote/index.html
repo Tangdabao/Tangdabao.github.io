@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="TangDabao_Blog">
 <meta property="og:description" content="STM32L0系列 - LPTIMLPTIM介绍 LPTIM是一个16位的定时器，可多个时钟源，可在所有电源模式下（除Standby模式下）可以保持运行状态，几遍没有内部时钟源，LPTIM已经可以运行。主要用于脉冲计数器、低功耗模式下唤醒、超时功能等。  LPTIM的主要特性 16位的递增计数器  3位预分频器，可以采用8种分频（1、2、4、8、16、32、64、128）  可选时钟源  内部时钟">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-21T08:51:22.489Z">
+<meta property="og:image" content="https://tangdabao.github.io/.io//Blog/blog/source/_posts/stm32l0-StudyNote/STM32L0_LPTIM.jpg">
+<meta property="og:updated_time" content="2019-09-21T08:58:51.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stm32l0_StudyNote">
 <meta name="twitter:description" content="STM32L0系列 - LPTIMLPTIM介绍 LPTIM是一个16位的定时器，可多个时钟源，可在所有电源模式下（除Standby模式下）可以保持运行状态，几遍没有内部时钟源，LPTIM已经可以运行。主要用于脉冲计数器、低功耗模式下唤醒、超时功能等。  LPTIM的主要特性 16位的递增计数器  3位预分频器，可以采用8种分频（1、2、4、8、16、32、64、128）  可选时钟源  内部时钟">
+<meta name="twitter:image" content="https://tangdabao.github.io/.io//Blog/blog/source/_posts/stm32l0-StudyNote/STM32L0_LPTIM.jpg">
 
 
 
@@ -352,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  219 字
+                  289 字
                 </span>
               
 
@@ -420,7 +422,13 @@
 <li><p>编码器模式</p>
 </li>
 </ul>
-<h2 id="LPTIM框图"><a href="#LPTIM框图" class="headerlink" title="LPTIM框图"></a>LPTIM框图</h2>
+<h2 id="LPTIM框图"><a href="#LPTIM框图" class="headerlink" title="LPTIM框图"></a>LPTIM框图</h2><p>  <img src="/.io//Blog\blog\source\_posts\stm32l0-StudyNote\STM32L0_LPTIM.jpg" alt="STM32L0_LPTIM"></p>
+<h2 id="LPTIM的工作模式"><a href="#LPTIM的工作模式" class="headerlink" title="LPTIM的工作模式"></a>LPTIM的工作模式</h2><p>LPTIM支持以下两种工作模式：</p>
+<ul>
+<li>连续模式：定时器自由运行，由触发时间启动并且到禁止之后才会停止</li>
+<li>单触发模式：定时器由触发时间启动，当达到ARR值的时候停止</li>
+</ul>
+
       
     </div>
     
@@ -593,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#STM32L0系列-LPTIM"><span class="nav-number">1.</span> <span class="nav-text">STM32L0系列 - LPTIM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LPTIM介绍"><span class="nav-number">2.</span> <span class="nav-text">LPTIM介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM的主要特性"><span class="nav-number">2.1.</span> <span class="nav-text">LPTIM的主要特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM框图"><span class="nav-number">2.2.</span> <span class="nav-text">LPTIM框图</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#STM32L0系列-LPTIM"><span class="nav-number">1.</span> <span class="nav-text">STM32L0系列 - LPTIM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LPTIM介绍"><span class="nav-number">2.</span> <span class="nav-text">LPTIM介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM的主要特性"><span class="nav-number">2.1.</span> <span class="nav-text">LPTIM的主要特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM框图"><span class="nav-number">2.2.</span> <span class="nav-text">LPTIM框图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM的工作模式"><span class="nav-number">2.3.</span> <span class="nav-text">LPTIM的工作模式</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -627,7 +635,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2k</span>
+    <span title="Site words total count">2.1k</span>
   
 </div>
 
