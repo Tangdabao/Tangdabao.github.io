@@ -88,7 +88,7 @@
 <meta property="og:description" content="STM32L0系列 - LPTIMLPTIM介绍 LPTIM是一个16位的定时器，可多个时钟源，可在所有电源模式下（除Standby模式下）可以保持运行状态，几遍没有内部时钟源，LPTIM已经可以运行。主要用于脉冲计数器、低功耗模式下唤醒、超时功能等。  LPTIM的主要特性 16位的递增计数器  3位预分频器，可以采用8种分频（1、2、4、8、16、32、64、128）  可选时钟源  内部时钟">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tangdabao.github.io/.io//Blog/blog/source/_posts/stm32l0-StudyNote/STM32L0_LPTIM.jpg">
-<meta property="og:updated_time" content="2019-09-21T08:58:51.182Z">
+<meta property="og:updated_time" content="2019-09-29T14:22:08.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stm32l0_StudyNote">
 <meta name="twitter:description" content="STM32L0系列 - LPTIMLPTIM介绍 LPTIM是一个16位的定时器，可多个时钟源，可在所有电源模式下（除Standby模式下）可以保持运行状态，几遍没有内部时钟源，LPTIM已经可以运行。主要用于脉冲计数器、低功耗模式下唤醒、超时功能等。  LPTIM的主要特性 16位的递增计数器  3位预分频器，可以采用8种分频（1、2、4、8、16、32、64、128）  可选时钟源  内部时钟">
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  289 字
+                  702 字
                 </span>
               
 
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -428,7 +428,13 @@
 <li>连续模式：定时器自由运行，由触发时间启动并且到禁止之后才会停止</li>
 <li>单触发模式：定时器由触发时间启动，当达到ARR值的时候停止</li>
 </ul>
-
+<h2 id="LPTIME-的Timeout模式"><a href="#LPTIME-的Timeout模式" class="headerlink" title="LPTIME 的Timeout模式"></a>LPTIME 的Timeout模式</h2><h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><ul>
+<li><p>用于Stop模式下计数器保持&amp;唤醒</p>
+<h3 id="代码介绍与初始化过程"><a href="#代码介绍与初始化过程" class="headerlink" title="代码介绍与初始化过程"></a>代码介绍与初始化过程</h3></li>
+<li><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ## - 1 -  系统时钟初始化############################################ */</span></span><br><span class="line">SystemClock_Config();</span><br><span class="line"><span class="comment">/* ## - 2 - 设置LPTIM输入时钟源为HSI ############################################ */</span></span><br><span class="line">PeriphClkInit.LptimClockSelection = RCC_LPTIM1CLKSOURCE_HSI;</span><br><span class="line">HAL_RCCEx_PeriphCLKConfig(&amp;PeriphClkInit);</span><br><span class="line"><span class="comment">/* ## - 3 - 设置LPTIM相关参数############################################ */</span></span><br><span class="line">hlptim1.Instance = LPTIM1;<span class="comment">//选择LPTIM</span></span><br><span class="line">hlptim1.Init.Clock.Source = LPTIM_CLOCKSOURCE_APBCLOCK_LPOSC;<span class="comment">//选择时钟源</span></span><br><span class="line">hlptim1.Init.Clock.Prescaler = LPTIM_PRESCALER_DIV128;<span class="comment">//设置分频系数</span></span><br><span class="line">hlptim1.Init.Trigger.Source = LPTIM_TRIGSOURCE_SOFTWARE;<span class="comment">//设置触发源</span></span><br><span class="line">hlptim1.Init.OutputPolarity = LPTIM_OUTPUTPOLARITY_HIGH;<span class="comment">//指定的输出电平</span></span><br><span class="line">hlptim1.Init.UpdateMode = LPTIM_UPDATE_IMMEDIATE;<span class="comment">//更新模式：立即更新或者结束之后更新</span></span><br><span class="line">hlptim1.Init.CounterSource = LPTIM_COUNTERSOURCE_INTERNAL;<span class="comment">//计数器源：内部或者外部</span></span><br><span class="line">HAL_LPTIM_Init(&amp;hlptim1);</span><br><span class="line"><span class="comment">/* ## - 4 - 使能LPTIME 外设时钟############################################ */</span></span><br><span class="line">__HAL_RCC_LPTIM1_CLK_ENABLE();</span><br><span class="line"><span class="comment">/* ## - 5 - 设置LPTIM中断优先级############################################ */</span></span><br><span class="line">HAL_NVIC_SetPriority(LPTIM1_IRQn, <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">HAL_NVIC_EnableIRQ(LPTIM1_IRQn);</span><br><span class="line"><span class="comment">/* ## - 6 - 添加中断服务函数############################################ */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LPTIM1_IRQHandler</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="comment">/* ## - 7 - 开启Timeout中断############################################ */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  设置TimeOut中断，任意的一个翻转事件会重启计数器</span></span><br><span class="line"><span class="comment">  * @param  LPTIME句柄</span></span><br><span class="line"><span class="comment">  * @param  自动重装载值：当计数器Count累加到重装载值之后为0，自动重新装载（最大0Xffff）         </span></span><br><span class="line"><span class="comment">  * @param  Timeout计数器：当计数器累加到此值时，重启计数器</span></span><br><span class="line"><span class="comment">  *					小于自动重装载值，小于0XFFFF</span></span><br><span class="line"><span class="comment">  * @retval  函数的成功与失败</span></span><br><span class="line"><span class="comment">  * @callback HAL_LPTIM_CompareMatchCallback</span></span><br><span class="line"><span class="comment">  * @example  假设LPtim的时钟是HSI（16M），LPTIM进行128分频，那么FCount = 0.125Mhz = 125khz</span></span><br><span class="line"><span class="comment">  *           当 T =50000/125kHz =  之后重新加载，产生中断 ;当T= 12500 /125kHz之后，唤醒MCU</span></span><br><span class="line"><span class="comment">  * @Wakeup   以Period为周期，当Count小于Timeout时，继续低功耗；当Count大于Timeout时，退出低功			   耗模式</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    HAL_LPTIM_TimeOut_Start_IT(&amp;hlptim1, </span><br><span class="line">                               <span class="number">50000</span><span class="number">-1</span>,<span class="comment">//0.4s </span></span><br><span class="line">                               <span class="number">12500</span><span class="number">-1</span>);<span class="comment">//0.1s</span></span><br><span class="line"><span class="comment">/* ## - 8 - 编写callback函数############################################ */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HAL_LPTIM_CompareMatchCallback</span><span class="params">(LPTIM_HandleTypeDef *hlptim)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"HAL_LPTIM_CompareMatchCallback\r\n"</span>);</span><br><span class="line">		S_LpTIM_Config.Counter =  HAL_LPTIM_ReadCounter(&amp;hlptim1);</span><br><span class="line">		S_LpTIM_Config.AutoReload =  HAL_LPTIM_ReadAutoReload(&amp;hlptim1);</span><br><span class="line">		S_LpTIM_Config.Compare = HAL_LPTIM_ReadCompare(&amp;hlptim1);</span><br><span class="line">    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="参考代码地址"><a href="#参考代码地址" class="headerlink" title="参考代码地址"></a>参考代码地址</h3>
       
     </div>
     
@@ -601,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#STM32L0系列-LPTIM"><span class="nav-number">1.</span> <span class="nav-text">STM32L0系列 - LPTIM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LPTIM介绍"><span class="nav-number">2.</span> <span class="nav-text">LPTIM介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM的主要特性"><span class="nav-number">2.1.</span> <span class="nav-text">LPTIM的主要特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM框图"><span class="nav-number">2.2.</span> <span class="nav-text">LPTIM框图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM的工作模式"><span class="nav-number">2.3.</span> <span class="nav-text">LPTIM的工作模式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#STM32L0系列-LPTIM"><span class="nav-number">1.</span> <span class="nav-text">STM32L0系列 - LPTIM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LPTIM介绍"><span class="nav-number">2.</span> <span class="nav-text">LPTIM介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM的主要特性"><span class="nav-number">2.1.</span> <span class="nav-text">LPTIM的主要特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM框图"><span class="nav-number">2.2.</span> <span class="nav-text">LPTIM框图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIM的工作模式"><span class="nav-number">2.3.</span> <span class="nav-text">LPTIM的工作模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPTIME-的Timeout模式"><span class="nav-number">2.4.</span> <span class="nav-text">LPTIME 的Timeout模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能简介"><span class="nav-number">2.4.1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码介绍与初始化过程"><span class="nav-number">2.4.2.</span> <span class="nav-text">代码介绍与初始化过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考代码地址"><span class="nav-number">2.4.3.</span> <span class="nav-text">参考代码地址</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -635,7 +641,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.1k</span>
+    <span title="Site words total count">2.5k</span>
   
 </div>
 
