@@ -59,19 +59,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[微信小程序学习笔记]]></title>
-    <url>%2F2018%2F12%2F23%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[This is Mini Program AN]]></content>
-      <tags>
-        <tag>Mini Program</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Markdown学习笔记]]></title>
     <url>%2F2018%2F12%2F23%2FMarkdown-Studydy-notes%2F</url>
     <content type="text"><![CDATA[基本用法 Markdown pad 2快捷键 加粗 Ctrl + B 斜体 Ctrl + I 引用 Ctrl + Q 插入链接 Ctrl + L 插入代码 Ctrl + K 插入图片 Ctrl + G 提升标题 Ctrl + H 有序列表 Ctrl + O 无序列表 Ctrl + U 横线 Ctrl + R 撤销 Ctrl + Z 重做 Ctrl + Y 添加表格md编辑 ` | 水果 | 价格 | 数量 | | ——– | —–: | :—-: | | 香蕉 | $1 | 5 | | 苹果 | $1 | 6 | | 草莓 | $1 | 7 |` 大神插件 介绍：总有大佬想提高生产速度，就比如Fan Feilong的exceltk 下载：mac: &amp;&amp; windows: 使用： 把您想要转换的Excel文件命名为 example.xls并放在下载之后的文件夹内 打开win的Cmd写入如下命令行 exceltk.exe -t json -xls example.xls 即可食用 鸣谢大佬的辛苦，在此引用，请多包涵 食用中的问题 问题：Markdown pad 2居然不能显示表格？？？？ 解决办法：Tools 》》 Options 》》Markdown 》》Markdown Processor：Markdown（Extra） 使用 vscode写markdown遇到的问题 问题：Updata到服务器之后，文件中文有乱码？？ 解决办法：使用记事本打开》》另存为》》编码 》》UTF-8 》》再次Hexo g -d]]></content>
       <tags>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序学习笔记]]></title>
+    <url>%2F2018%2F12%2F23%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[This is Mini Program AN]]></content>
+      <tags>
+        <tag>Mini Program</tag>
       </tags>
   </entry>
   <entry>
