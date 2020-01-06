@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Nordic_Timer]]></title>
+    <url>%2F2020%2F01%2F06%2FNordic-Timer%2F</url>
+    <content type="text"><![CDATA[Nordic TimerTimer的简单介绍Timer的模式 Timer Counter Timer的时钟源 Timer的时钟源来源于HFCLK，可以被4bit的分频寄存器分频处理； Ftimer = 16Mhz/2^PRESCALER 当Ftimer小于1Mhz的时候，系统会自动切换到PCLK 1Mhz，节省功耗； PRESCALER：Timer模式下，用于分频 BITMODE：用于修改Timer的最大值 以上两个参数只有在Timer Stop的情况下，才可以修改。]]></content>
+      <tags>
+        <tag>BLE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[BlueNRG-1_MTU_MODE]]></title>
+    <url>%2F2020%2F01%2F05%2FBlueNRG-1_MTU_MODE%2F</url>
+    <content type="text"><![CDATA[BlueNRG-1 MTU模式&amp;16位UUID基于STM32 BlueNRG-1的SDK -3.1.0&amp;nRF Connect 改用最大MTU，一次性调用接口可以收发247个字节，整个透传速率尽可能快而且不丢数据 一个收特征，一个发特征，UUID改用16位自定义UUID server uuid:0xfff0 TX uuid :0xfff1 TX value length 247 CHAR_PROP_NOTIFY RX UUID:0xfff2 RX value length 247 CHAR_PROP_WRITE|CHAR_PROP_WRITE_WITHOUT_RESP 设计串口FIFO和发送FIFO 需要准确配置GATT属性表 实现方案 基于ST BlueNRG-1 SDK 3.1.0/BlueNRG-1_2 DK 3.1.0\Project\BLE_Examples\BLE_Chat 修改最大的MTU为247字节： 修改协议栈的最大容量 ：修改BlueNRG_Stack_Initialization(&amp;BlueNRG_Stack_Init_params);的成员 ​ 修改UUID为自定义ID 修改UART接收最大数据量]]></content>
+      <tags>
+        <tag>BLE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[cubemxstudy]]></title>
+    <url>%2F2019%2F11%2F22%2FCubeMX_Study%2F</url>
+    <content type="text"><![CDATA[Cubemx Study NoteCubemx设置选项 1.复制所有的底层库 2.只复制需要的底层库 3.不复制底层库，连接到系统文件内库 增加.c/.h文件到新的文件夹]]></content>
+      <tags>
+        <tag>Cubemx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Gpio]]></title>
+    <url>%2F2019%2F10%2F25%2FGpio_Lowpower%2F</url>
+    <content type="text"><![CDATA[STM32 GPIO 配置与低功耗模式 主要描述STM32的gpio相关的介绍、低功耗模式下的Gpio设置等 参考AN4899 文档术语与介绍 Iikg： 漏电流 Iing：灌电流 STM32 GPIO的主要特性 输出状态：推挽输出（上拉、下拉）、开漏输出（上拉、下拉） 输入状态：浮空输入、上拉输入、下拉输入、模拟输入 STM32 GPIO模式介绍： 输入模式介绍当作为输入模式的时候，有三种模式可以选择： 输入上拉：设置上拉输入，固定电平为高，防止输入信号浮空； 输入下拉：设置下拉输入，固定电平为低，防止输入信号浮空； 浮空输入：信号电平根据外部信号决定，当外部无信号的时候，内部施密特触发器会有外部噪声，增加功耗。 当作为输入时，IO的一些特性： 输出模式被禁用 施密特触发器被开启 上拉下拉电阻可控 每个AHB时钟周期，会把电平填充到输入数据寄存器（IDR）。 输出模式介绍当作为输出模式的时候，有两种方式可以选择： 推挽输出：推挽输出实际是两个MOS管驱动，一个PMOS、一个NMos 当输出高电平的时候，打开Pmos，IO连接到Vdd 当输出低电平的时候，打开Nmos，IO连接到Gnd 开漏输出：开漏输出不需要Pmos，但是需要一个上拉电阻。当需要高电平的时候，必须关闭Nmos，靠上拉电阻拉高。可以是内部的上拉电阻，内部电阻阻值40k欧（具体请参考手册） 当作为输出时，IO的一些特性： 输入的施密特触发器是打开的，可以读取输出的电平 模拟模式介绍当I/O被设置为模拟的时候： 输出Buffer被禁止； 施密特触发器被禁止，施密特触发器被强制设置一个电平（0）； 上拉电阻与下拉电阻被禁用； 读取输入寄存器会为0； GPIO的电流消耗：有两种I/O电流消耗： 静态电流消耗：主要是外部上拉电阻或者负载造成，当内部为下拉输入、外部有上拉电阻；内部为输出，外部下拉电阻，都会有漏电流。 动态电流损耗：主要是IO内部损耗，此处不再介绍，请参考手册对应章节 GPIO软件电流优化： 配置GPIO为模拟输入：如果不用的I/O都设置为模拟输入，降低损耗。 合适的GPIO速度 不用的GPIO，禁用此GPIO的时钟。 当进入低功耗模式的时候，一定要吧IO固定一个电平。 如果IO外部连接了驱动，需要IO设置为推挽输出或者上拉/下拉]]></content>
+      <tags>
+        <tag>stm32</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Lowpower]]></title>
+    <url>%2F2019%2F10%2F21%2FLowpower%2F</url>
+    <content type="text"><![CDATA[STM32 低功耗调试经验 SPI IO在进入到低功耗模式的状态：SPI csPIN要根据实际情况选择，如果低电平有效，就设置为输出为高，其他反初始化。]]></content>
+      <tags>
+        <tag>Lowpower</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IAR_Printf_Problem]]></title>
     <url>%2F2019%2F10%2F09%2FIAR-Printf-Problem%2F</url>
     <content type="text"><![CDATA[IAR 遇到的问题 问题：IAR 在使用Printf的时候，编译会出现报错，报错信息为： Error[Li005]: no definition for &quot;__lseek&quot; [referenced from xfspos.o(dl7M_tlf.a)] Error[Li005]: no definition for &quot;__close&quot; [referenced from fclose.o(dl7M_tlf.a)] Error[Li005]: no definition for &quot;remove&quot; [referenced from fclose.o(dl7M_tlf.a)] 解决办法： IAR 中 options中General Options选项的Library Configuration选项卡中将None换成Semihosted 造成原因： None表示不调用底层链接库，若选择Semihosted或IAR breakpoint复选框免责在应用程序调试过程中使用DLIB库提供的底层调试接口。]]></content>
@@ -30,17 +70,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nRF APP DownLoad]]></title>
-    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
-    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
+    <title><![CDATA[nRF Sniffer User Guide]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
+    <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nRF Sniffer User Guide]]></title>
-    <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
-    <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
+    <title><![CDATA[nRF APP DownLoad]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
+    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>
@@ -59,14 +99,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Markdown学习笔记]]></title>
-    <url>%2F2018%2F12%2F23%2FMarkdown-Studydy-notes%2F</url>
-    <content type="text"><![CDATA[基本用法 Markdown pad 2快捷键 加粗 Ctrl + B 斜体 Ctrl + I 引用 Ctrl + Q 插入链接 Ctrl + L 插入代码 Ctrl + K 插入图片 Ctrl + G 提升标题 Ctrl + H 有序列表 Ctrl + O 无序列表 Ctrl + U 横线 Ctrl + R 撤销 Ctrl + Z 重做 Ctrl + Y 添加表格md编辑 ` | 水果 | 价格 | 数量 | | ——– | —–: | :—-: | | 香蕉 | $1 | 5 | | 苹果 | $1 | 6 | | 草莓 | $1 | 7 |` 大神插件 介绍：总有大佬想提高生产速度，就比如Fan Feilong的exceltk 下载：mac: &amp;&amp; windows: 使用： 把您想要转换的Excel文件命名为 example.xls并放在下载之后的文件夹内 打开win的Cmd写入如下命令行 exceltk.exe -t json -xls example.xls 即可食用 鸣谢大佬的辛苦，在此引用，请多包涵 食用中的问题 问题：Markdown pad 2居然不能显示表格？？？？ 解决办法：Tools 》》 Options 》》Markdown 》》Markdown Processor：Markdown（Extra） 使用 vscode写markdown遇到的问题 问题：Updata到服务器之后，文件中文有乱码？？ 解决办法：使用记事本打开》》另存为》》编码 》》UTF-8 》》再次Hexo g -d]]></content>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[微信小程序学习笔记]]></title>
     <url>%2F2018%2F12%2F23%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[This is Mini Program AN]]></content>
@@ -75,9 +107,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Markdown学习笔记]]></title>
+    <url>%2F2018%2F12%2F23%2FMarkdown-Studydy-notes%2F</url>
+    <content type="text"><![CDATA[基本用法 Markdown pad 2快捷键 加粗 Ctrl + B 斜体 Ctrl + I 引用 Ctrl + Q 插入链接 Ctrl + L 插入代码 Ctrl + K 插入图片 Ctrl + G 提升标题 Ctrl + H 有序列表 Ctrl + O 无序列表 Ctrl + U 横线 Ctrl + R 撤销 Ctrl + Z 重做 Ctrl + Y 添加表格md编辑 ` | 水果 | 价格 | 数量 | | ——– | —–: | :—-: | | 香蕉 | $1 | 5 | | 苹果 | $1 | 6 | | 草莓 | $1 | 7 |` 大神插件 介绍：总有大佬想提高生产速度，就比如Fan Feilong的exceltk 下载：mac: &amp;&amp; windows: 使用： 把您想要转换的Excel文件命名为 example.xls并放在下载之后的文件夹内 打开win的Cmd写入如下命令行 exceltk.exe -t json -xls example.xls 即可食用 鸣谢大佬的辛苦，在此引用，请多包涵 食用中的问题 问题：Markdown pad 2居然不能显示表格？？？？ 解决办法：Tools 》》 Options 》》Markdown 》》Markdown Processor：Markdown（Extra） 使用 vscode写markdown遇到的问题 问题：Updata到服务器之后，文件中文有乱码？？ 解决办法：使用记事本打开》》另存为》》编码 》》UTF-8 》》再次Hexo g -d]]></content>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo Application Note]]></title>
     <url>%2F2018%2F12%2F22%2Fhexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[应用主题Tangdabao 下载你喜欢的主题 我下载的是Next 如何应用你喜欢的主题 在终端窗口下，定位到 Hexo 站点目录下。使用 Git checkout 代码： $ cd your-hexo-site $ git clone https://github.com/iissnan/hexo-theme-next themes/next 使用中遇到的问题 中文乱码：VS打开Md文件导致，需要修改Vs中文格式]]></content>
+    <content type="text"><![CDATA[应用主题Tangdabao 下载你喜欢的主题 我下载的是Next 如何应用你喜欢的主题 在终端窗口下，定位到 Hexo 站点目录下。使用 Git checkout 代码： $ cd your-hexo-site $ git clone https://github.com/iissnan/hexo-theme-next themes/next 使用中遇到的问题 中文乱码：VS打开Md文件导致，需要修改Vs中文格式使用标题的时候，出现Error 并且不能上传 检查Log信息是否有错误 检查Title、data、tag等后面是否有空格 一般Hexo的Log中会有相关的错误提示，请仔细检查]]></content>
       <tags>
         <tag>hexo</tag>
       </tags>
