@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="TangDabao_Blog">
 <meta property="og:description" content="BlueNRG-1 MTU模式&amp;amp;16位UUID基于STM32 BlueNRG-1的SDK -3.1.0&amp;amp;nRF Connect 改用最大MTU，一次性调用接口可以收发247个字节，整个透传速率尽可能快而且不丢数据  一个收特征，一个发特征，UUID改用16位自定义UUID  server uuid:0xfff0  TX uuid :0xfff1 TX value length  2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://tangdabao.github.io/.io//Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217153031487.png">
-<meta property="og:image" content="https://tangdabao.github.io/.io//Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217153214708.png">
-<meta property="og:image" content="https://tangdabao.github.io/.io//Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217153515590.png">
-<meta property="og:image" content="https://tangdabao.github.io/.io//Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217154012125.png">
-<meta property="og:image" content="https://tangdabao.github.io/.io//Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217154140716.png">
+<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217153031487.png">
+<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217153214708.png">
+<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217153515590.png">
+<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217154012125.png">
+<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217154140716.png">
 <meta property="og:updated_time" content="2020-01-06T14:20:52.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BlueNRG-1_MTU_MODE">
 <meta name="twitter:description" content="BlueNRG-1 MTU模式&amp;amp;16位UUID基于STM32 BlueNRG-1的SDK -3.1.0&amp;amp;nRF Connect 改用最大MTU，一次性调用接口可以收发247个字节，整个透传速率尽可能快而且不丢数据  一个收特征，一个发特征，UUID改用16位自定义UUID  server uuid:0xfff0  TX uuid :0xfff1 TX value length  2">
-<meta name="twitter:image" content="https://tangdabao.github.io/.io//Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217153031487.png">
+<meta name="twitter:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users/TANG/AppData/Roaming/Typora/typora-user-images/image-20191217153031487.png">
 
 
 
@@ -419,23 +419,23 @@
 <li><p>修改最大的MTU为247字节：</p>
 <ul>
 <li><p>修改协议栈的最大容量 ：修改<code>BlueNRG_Stack_Initialization(&amp;BlueNRG_Stack_Init_params);</code>的成员</p>
-<p><img src="/.io//Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217153031487.png" alt="image-20191217153031487"></p>
+<p><img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217153031487.png" alt="image-20191217153031487"></p>
 </li>
 </ul>
 </li>
 </ul>
-<p><img src="/.io//Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217153214708.png" alt="image-20191217153214708"></p>
-<p>​                <img src="/.io//Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217153515590.png" alt="image-20191217153515590"></p>
+<p><img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217153214708.png" alt="image-20191217153214708"></p>
+<p>​                <img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217153515590.png" alt="image-20191217153515590"></p>
 <ul>
 <li>修改UUID为自定义ID<ul>
 <li></li>
 </ul>
 </li>
 </ul>
-<p><img src="/.io//Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217154012125.png" alt="image-20191217154012125"></p>
+<p><img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217154012125.png" alt="image-20191217154012125"></p>
 <ul>
 <li>修改UART接收最大数据量<ul>
-<li><img src="/.io//Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217154140716.png" alt="image-20191217154140716"></li>
+<li><img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Users\TANG\AppData\Roaming\Typora\typora-user-images\image-20191217154140716.png" alt="image-20191217154140716"></li>
 </ul>
 </li>
 </ul>
@@ -573,7 +573,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
