@@ -19,7 +19,7 @@
   <entry>
     <title><![CDATA[BlueNRG-1_MTU_MODE]]></title>
     <url>%2F2020%2F01%2F05%2FBlueNRG-1_MTU_MODE%2F</url>
-    <content type="text"><![CDATA[BlueNRG-1 MTU模式&amp;16位UUID基于STM32 BlueNRG-1的SDK -3.1.0&amp;nRF Connect 改用最大MTU，一次性调用接口可以收发247个字节，整个透传速率尽可能快而且不丢数据 一个收特征，一个发特征，UUID改用16位自定义UUID server uuid:0xfff0 TX uuid :0xfff1 TX value length 247 CHAR_PROP_NOTIFY RX UUID:0xfff2 RX value length 247 CHAR_PROP_WRITE|CHAR_PROP_WRITE_WITHOUT_RESP 设计串口FIFO和发送FIFO 需要准确配置GATT属性表 实现方案 基于ST BlueNRG-1 SDK 3.1.0/BlueNRG-1_2 DK 3.1.0\Project\BLE_Examples\BLE_Chat 修改最大的MTU为247字节： 修改协议栈的最大容量 ：修改BlueNRG_Stack_Initialization(&amp;BlueNRG_Stack_Init_params);的成员 ​ 修改UUID为自定义ID 修改UART接收最大数据量]]></content>
+    <content type="text"><![CDATA[BlueNRG-1 MTU模式&amp;16位UUID基于STM32 BlueNRG-1的SDK -3.1.0&amp;nRF Connect 改用最大MTU，一次性调用接口可以收发247个字节，整个透传速率尽可能快而且不丢数据 一个收特征，一个发特征，UUID改用16位自定义UUID server uuid:0xfff0 TX uuid :0xfff1 TX value length 247 CHAR_PROP_NOTIFY RX UUID:0xfff2 RX value length 247 CHAR_PROP_WRITE|CHAR_PROP_WRITE_WITHOUT_RESP 设计串口FIFO和发送FIFO 需要准确配置GATT属性表 实现方案 基于ST BlueNRG-1 SDK 3.1.0/BlueNRG-1_2 DK 3.1.0\Project\BLE_Examples\BLE_Chat 修改最大的MTU为247字节： 修改协议栈的最大容量 ：修改BlueNRG_Stack_Initialization(&amp;BlueNRG_Stack_Init_params);的成员 修改UUID为自定义ID 修改UART接收最大数据量]]></content>
       <tags>
         <tag>BLE</tag>
       </tags>
@@ -83,7 +83,7 @@
   <entry>
     <title><![CDATA[nRF APP DownLoad]]></title>
     <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
-    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
+    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; 1 nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>

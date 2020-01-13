@@ -89,11 +89,10 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Stack_Init_params.jpg">
 <meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Default_ATT_MTU.jpg">
-<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Blog/blog/source/_posts/BlueNRG-1_MTU_MODE/Default_ATT_MTU.jpg">
-<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Blog/blog/source/_posts/BlueNRG-1_MTU_MODE/Att_Value_size.jpg">
-<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Blog/blog/source/_posts/BlueNRG-1_MTU_MODE/Server_set.jpg">
-<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Blog/blog/source/_posts/BlueNRG-1_MTU_MODE/Uart_data_size.jpg">
-<meta property="og:updated_time" content="2020-01-07T06:47:56.470Z">
+<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Att_Value_size.jpg">
+<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Server_set.jpg">
+<meta property="og:image" content="https://tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Uart_data_size.jpg">
+<meta property="og:updated_time" content="2020-01-13T08:58:16.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BlueNRG-1_MTU_MODE">
 <meta name="twitter:description" content="BlueNRG-1 MTU模式&amp;amp;16位UUID基于STM32 BlueNRG-1的SDK -3.1.0&amp;amp;nRF Connect 改用最大MTU，一次性调用接口可以收发247个字节，整个透传速率尽可能快而且不丢数据  一个收特征，一个发特征，UUID改用16位自定义UUID  server uuid:0xfff0  TX uuid :0xfff1 TX value length  2">
@@ -419,23 +418,22 @@
 </li>
 <li><p>修改最大的MTU为247字节：</p>
 <ul>
-<li>修改协议栈的最大容量 ：修改<code>BlueNRG_Stack_Initialization(&amp;BlueNRG_Stack_Init_params);</code>的成员<img src="/2020/01/05/BlueNRG-1_MTU_MODE/Stack_Init_params.jpg" title="asset_img Stack_Init_params">
-<img src="/2020/01/05/BlueNRG-1_MTU_MODE/Default_ATT_MTU.jpg" title="Default_ATT_MTU"></li>
-<li><img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Blog\blog\source\_posts\BlueNRG-1_MTU_MODE\Default_ATT_MTU.jpg" alt="image-20191217153214708"></li>
-</ul>
+<li>修改协议栈的最大容量 ：修改<code>BlueNRG_Stack_Initialization(&amp;BlueNRG_Stack_Init_params);</code>的成员<img src="/2020/01/05/BlueNRG-1_MTU_MODE/Stack_Init_params.jpg" title="Stack_Init_params">
+<img src="/2020/01/05/BlueNRG-1_MTU_MODE/Default_ATT_MTU.jpg" title="Default_ATT_MTU">
+<img src="/2020/01/05/BlueNRG-1_MTU_MODE/Att_Value_size.jpg" title="Att_Value_size">
 </li>
 </ul>
-<p>​                <img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Blog\blog\source\_posts\BlueNRG-1_MTU_MODE\Att_Value_size.jpg" alt="image-20191217153515590"></p>
+</li>
+<li><p>修改UUID为自定义ID</p>
 <ul>
-<li>修改UUID为自定义ID<ul>
-<li></li>
-</ul>
+<li><img src="/2020/01/05/BlueNRG-1_MTU_MODE/Server_set.jpg" title="Server_set">
 </li>
 </ul>
-<p><img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Blog\blog\source\_posts\BlueNRG-1_MTU_MODE\Server_set.jpg" alt="image-20191217154012125"></p>
+</li>
+<li><p>修改UART接收最大数据量</p>
 <ul>
-<li>修改UART接收最大数据量<ul>
-<li><img src="//tangdabao.github.io/2020/01/05/BlueNRG-1_MTU_MODE/Blog\blog\source\_posts\BlueNRG-1_MTU_MODE\Uart_data_size.jpg" alt="image-20191217154140716"></li>
+<li><img src="/2020/01/05/BlueNRG-1_MTU_MODE/Uart_data_size.jpg" title="Uart_data_size">
+</li>
 </ul>
 </li>
 </ul>
