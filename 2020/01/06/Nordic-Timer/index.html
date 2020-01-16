@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="TangDabao_Blog">
 <meta property="og:description" content="Nordic TimerTimer的简单介绍Timer的模式 Timer  Counter  Timer的时钟源 Timer的时钟源来源于HFCLK，可以被4bit的分频寄存器分频处理； Ftimer = 16Mhz/2^PRESCALER 当Ftimer小于1Mhz的时候，系统会自动切换到PCLK 1Mhz，节省功耗；  PRESCALER：Timer模式下，用于分频  BITMODE：用于修改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-06T14:18:25.216Z">
+<meta property="og:updated_time" content="2020-01-16T10:46:12.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nordic_Timer">
 <meta name="twitter:description" content="Nordic TimerTimer的简单介绍Timer的模式 Timer  Counter  Timer的时钟源 Timer的时钟源来源于HFCLK，可以被4bit的分频寄存器分频处理； Ftimer = 16Mhz/2^PRESCALER 当Ftimer小于1Mhz的时候，系统会自动切换到PCLK 1Mhz，节省功耗；  PRESCALER：Timer模式下，用于分频  BITMODE：用于修改">
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  103 字
+                  331 字
                 </span>
               
 
@@ -403,6 +403,47 @@
 </li>
 </ul>
 <p>以上两个参数只有在Timer Stop的情况下，才可以修改。</p>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><h4 id="Timer初始化函数-nrfx-timer-init"><a href="#Timer初始化函数-nrfx-timer-init" class="headerlink" title="Timer初始化函数 nrfx_timer_init"></a>Timer初始化函数 nrfx_timer_init</h4><ul>
+<li><p>nrf_drv_timer_t 定义Timer句柄</p>
+</li>
+<li><p>nrf_drv_timer_config_t  Timer初始化配置结构体</p>
+<ul>
+<li>frequency 选择频率3k – 16Mhz</li>
+<li>mode：模式 Timer&amp;counter&amp;low-power counter</li>
+<li>bit_width：位宽：8&amp;16&amp;24&amp;32</li>
+<li>interrupt_priority：中断优先级</li>
+<li>p_context ：中断服务函数</li>
+</ul>
+</li>
+<li><p>nrfx_timer_event_handler_t ：Timer事件服务函数</p>
+</li>
+</ul>
+<h4 id="Timer-将ms转换成计时器滴答函数-nrf-drv-timer-ms-to-ticks"><a href="#Timer-将ms转换成计时器滴答函数-nrf-drv-timer-ms-to-ticks" class="headerlink" title="Timer 将ms转换成计时器滴答函数 nrf_drv_timer_ms_to_ticks"></a>Timer 将ms转换成计时器滴答函数 nrf_drv_timer_ms_to_ticks</h4><ul>
+<li>nrfx_timer_t 定义的Timer句柄</li>
+<li>待转换的ms值</li>
+</ul>
+<h4 id="Timer-将定时器设置为比较模式函数-nrf-drv-timer-extended-compare"><a href="#Timer-将定时器设置为比较模式函数-nrf-drv-timer-extended-compare" class="headerlink" title="Timer 将定时器设置为比较模式函数 nrf_drv_timer_extended_compare"></a>Timer 将定时器设置为比较模式函数 nrf_drv_timer_extended_compare</h4><ul>
+<li>nrfx_timer_t 定义Timer句柄</li>
+<li>nrf_timer_cc_channel_t 比较的通道数 0–5</li>
+<li>cc_value 比较值</li>
+<li>nrf_timer_short_mask_t：技术器对应的编号</li>
+<li>enable_int：使能或者禁止比较通道中断</li>
+</ul>
+<h4 id="Timer-使能函数-nrf-drv-timer-enable"><a href="#Timer-使能函数-nrf-drv-timer-enable" class="headerlink" title="Timer 使能函数 nrf_drv_timer_enable"></a>Timer 使能函数 nrf_drv_timer_enable</h4><ul>
+<li>nrfx_timer_t  定义Timer句柄</li>
+</ul>
+<h3 id="代码移植"><a href="#代码移植" class="headerlink" title="代码移植"></a>代码移植</h3><ul>
+<li>添加Timer头文件 <code>#include &quot;nrf_drv_timer.h</code></li>
+<li><p>添加库文件 </p>
+<ul>
+<li><em>nRF5_SDK_15.3.0_59ac345\modules\nrfx\drivers\include</em>  nrf_timer.c</li>
+<li><em>nRF5_SDK_15.3.0_59ac345\integration\nrfx\legacy</em>  nrf_drv_timer.h</li>
+</ul>
+</li>
+<li><p>修改sdk_config.h,增加Timer相关宏定义</p>
+</li>
+<li>修改Main主函数相关参数</li>
+</ul>
 
       
     </div>
@@ -524,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nordic-Timer"><span class="nav-number">1.</span> <span class="nav-text">Nordic Timer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Timer的简单介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Timer的简单介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer的模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">Timer的模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer的时钟源"><span class="nav-number">1.1.2.</span> <span class="nav-text">Timer的时钟源</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nordic-Timer"><span class="nav-number">1.</span> <span class="nav-text">Nordic Timer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Timer的简单介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Timer的简单介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer的模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">Timer的模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer的时钟源"><span class="nav-number">1.1.2.</span> <span class="nav-text">Timer的时钟源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码分析"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer初始化函数-nrfx-timer-init"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Timer初始化函数 nrfx_timer_init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-将ms转换成计时器滴答函数-nrf-drv-timer-ms-to-ticks"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Timer 将ms转换成计时器滴答函数 nrf_drv_timer_ms_to_ticks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-将定时器设置为比较模式函数-nrf-drv-timer-extended-compare"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Timer 将定时器设置为比较模式函数 nrf_drv_timer_extended_compare</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-使能函数-nrf-drv-timer-enable"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">Timer 使能函数 nrf_drv_timer_enable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码移植"><span class="nav-number">1.1.4.</span> <span class="nav-text">代码移植</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -614,7 +655,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.4k</span>
+    <span title="Site words total count">5.7k</span>
   
 </div>
 

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vscode-Hotkey]]></title>
+    <url>%2F2020%2F01%2F16%2FVscode-Hotkey%2F</url>
+    <content type="text"><![CDATA[Vscode Code Software HotKey 函数跳转 ：ctrl+鼠标左键 代码格式化：shift + alt +f]]></content>
+      <tags>
+        <tag>IDE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[C-Program-study]]></title>
     <url>%2F2020%2F01%2F10%2FC-Program-study%2F</url>
     <content type="text"><![CDATA[个人学习C语言笔记 以下代码学习自周立功程序设计与数据结构，学习笔记 仅作为学习记录使用 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207208209210211212213214215216217218219220221222223224225226227228229230231232233234235236237238239240241242243244245246247248249250251252253254255256257258259260261262263264265266267268269270271272273274275276277278279280281282*//#include &quot;swip.h&quot;*int main(void)&#123;\#if 0 int iNum = 0x64; printf(&quot;This is Test\r\n&quot;); *//**************************************//* printf(&quot;&amp;iNum:%x,iNum:%x\n&quot;, &amp;iNum, iNum); *//&amp;iNum 是指向int 变量iNum的指针* *//**************************************//* int *ptr; *//定义一个指针变量 ptr是指向int的指针*​ *// int \* 类型名是指向int非指针类型* ptr = &amp;iNum; printf(&quot;ptr:%x\n&quot;, ptr); printf(&quot;*ptr:%x\r\n&quot;, *ptr); *//**************************************//* typedef int *PTR_INT; PTR_INT *pPtr = &amp;ptr; printf(&quot;pPtr:%x,&amp;ptr:x\n&quot;, pPtr, &amp;ptr); *//**************************************//* char data[3] = &#123;0x01, 0x02, 0x03&#125;; printf(&quot;%x \r\n&quot;, data); *//指向数组指针* printf(&quot;%x \r\n&quot;, data + 1); printf(&quot;%x \r\n&quot;, data + 2); printf(&quot;%x\r\n&quot;, *(data)); *//**************************************//* int data0, data1, data2; int *ptrarr[3] = &#123;&amp;data0, &amp;data1, &amp;data2&#125;; char *keyWord[5] = &#123;&quot;eagle&quot;, &quot;cat&quot;, &quot;and&quot;, &quot;dog&quot;, &quot;ball&quot;&#125;; printf(&quot;%s\r\n&quot;, keyWord[0]); printf(&quot;%s\r\n&quot;, keyWord[1]); *//**************************************//* *//*****************浮点运算*************//* *//float 型变量仅能接收浮点型常量的7位有效数据，在有效数字后面输出的数字都是不准确的* *//因此有效数据外的数据，不能用==做比较，下面例子显示Fail* float f1 = 123.456001; float f2 = 123.456002; if (f1 == f2) &#123;​ printf(&quot;OK\r\n&quot;); &#125; else &#123;​ printf(&quot;Fail\r\n&quot;); &#125; *//**************************************//* *//数据类型转换* unsigned int a = 9; int b = -4, c; c = a / b; printf(&quot;c:%d\r\n&quot;, c);*//**************************************//**//**************************************//**//for 注意事项：i是uchar的范围是0--255，但是i++会导致一直累加，**//当I==255的时候，I++，导致i=0，又小于FF，无线循环*\#if 0 for(unsigned char i=0xFc;i &lt;= 0Xff;i++) &#123;​ printf(&quot; i : %d\r\n&quot;,i); &#125;\#endif*//**************************************//*\#if 0\#define MOD(*x*, *y*) x % yint m =13 ,n =94;printf(&quot;%d\n&quot;,MOD(n,m+4));*// 7 :94%13+4*\#else*//#define MOD(x,y) x%y**//int m =13 ,n =94;**//printf(&quot;%d\n&quot;,MOD(n,(m+4)));// 9 :94%(13+4)*\#define MOD(*x*, *y*) (x) % (y)int m =13 ,n =94;printf(&quot;%d\n&quot;,MOD(n,m+4));*// 7 :94%13+4*\#endif*//**************************************//*printf(&quot;%c%3c%5c\n&quot;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;); *//%后面代表字段宽度，%5表示输出的字符少于5就用空格填空，目的是为了对齐**//**************************************//*int iNum_1 = 0x79;int *ptr_1 = &amp;iNum_1;int *ptr_2 = &amp;iNum_1;*//指针是无符号整型，因此此处char \*ptr_2赋值会报错*printf(&quot;%d, %d &quot;,ptr_1,*ptr_1);*//6422208,121**ptr_1 = *ptr_1 +1;*//地址内数据加一**(ptr_1 + 1) = 0x7A; *//给下一个地址赋值*printf(&quot;%d, %d &quot;,ptr_1,*ptr_1);*//6422208，122//地址未变，地址内的数据加一*printf(&quot;%d, %d &quot;,ptr_1+1,*ptr_1+1);*//6422212,123//指针为Int型，因此增加4,这也是sizeof（int\*A） =4的原因*printf(&quot;%d, %d &quot;,ptr_2,ptr_2+1);*//6422208,6422209*printf(&quot;%d&quot;,*(ptr_1+1));*//122**//assert()断言判断，如果参数为真，继续运行，如果不为真，return 0*int data_1[3] = &#123;1, 2, 3&#125;;int *ReceivedData;printf(&quot;\r\n%x, %x, %x, %x, %x&quot;, &amp;data_1[0], &amp;data_1[1], &amp;data_1[2], &amp;data_1, &amp;data_1+1);*//0x6100,6104,6108,6100,610c**//为什么&amp;data_1 +1是610C呢？原因：系统会认为&amp;data_1 +1中的1，是偏移一个数组大小，此数组大小为12（3\*4），即越界。*printf(&quot;\r\n%d,%d\r\n&quot;,*data_1,*(data_1 + 1));*//1,2*ReceivedData = data_1;printf(&quot;\r\n%x&quot;,ReceivedData);printf(&quot;\r\n%x&quot;,ReceivedData++);printf(&quot;\r\n%x&quot;,ReceivedData);int data[10],*pData,*qData,i,j;data[0]=0x12;data[1] = 0x22;pData = data;printf(&quot;data addr : 0x%x\r\n&quot;,data);*//0x0000*printf(&quot;pData addr : 0x%x\r\n&quot;,pData);*//0x0000*pData ++;printf(&quot;data addr : 0x%x\r\n&quot;,&amp;data[1]);*//0x0004*printf(&quot;pData addr : 0x%x\r\n&quot;,pData);*//0x0004*printf(&quot;pData data : 0x%x\r\n&quot;,*pData);*//0x22**//如果pData指向data[i]，那么pData+j 等于data[i+j]**//\*(pData++) 因为后缀++的优先级高于\*，因此pData++等于pData。计算完之后，才会++*\#else */*** *** *@brief* *几个数据累加的计算函数* *** *@details* *** *@author* *Tyler* *** **/*int data[10] = &#123;0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00&#125;;int sum,*pData;sum = 0;*//注意赋初值，默认编译器不会自动赋初值的*pData = data;while (pData &lt; &amp;data[10])*//此处未算法关键部分，虽然数组只有10个数据，但是data[10]的地址是合法的*&#123; sum += *pData++;&#125;printf(&quot;Sum: 0x%x\r\n&quot;,sum);\#endif system(&quot;pause&quot;); return 0;&#125;]]></content>
@@ -11,7 +19,7 @@
   <entry>
     <title><![CDATA[Nordic_Timer]]></title>
     <url>%2F2020%2F01%2F06%2FNordic-Timer%2F</url>
-    <content type="text"><![CDATA[Nordic TimerTimer的简单介绍Timer的模式 Timer Counter Timer的时钟源 Timer的时钟源来源于HFCLK，可以被4bit的分频寄存器分频处理； Ftimer = 16Mhz/2^PRESCALER 当Ftimer小于1Mhz的时候，系统会自动切换到PCLK 1Mhz，节省功耗； PRESCALER：Timer模式下，用于分频 BITMODE：用于修改Timer的最大值 以上两个参数只有在Timer Stop的情况下，才可以修改。]]></content>
+    <content type="text"><![CDATA[Nordic TimerTimer的简单介绍Timer的模式 Timer Counter Timer的时钟源 Timer的时钟源来源于HFCLK，可以被4bit的分频寄存器分频处理； Ftimer = 16Mhz/2^PRESCALER 当Ftimer小于1Mhz的时候，系统会自动切换到PCLK 1Mhz，节省功耗； PRESCALER：Timer模式下，用于分频 BITMODE：用于修改Timer的最大值 以上两个参数只有在Timer Stop的情况下，才可以修改。 代码分析Timer初始化函数 nrfx_timer_init nrf_drv_timer_t 定义Timer句柄 nrf_drv_timer_config_t Timer初始化配置结构体 frequency 选择频率3k – 16Mhz mode：模式 Timer&amp;counter&amp;low-power counter bit_width：位宽：8&amp;16&amp;24&amp;32 interrupt_priority：中断优先级 p_context ：中断服务函数 nrfx_timer_event_handler_t ：Timer事件服务函数 Timer 将ms转换成计时器滴答函数 nrf_drv_timer_ms_to_ticks nrfx_timer_t 定义的Timer句柄 待转换的ms值 Timer 将定时器设置为比较模式函数 nrf_drv_timer_extended_compare nrfx_timer_t 定义Timer句柄 nrf_timer_cc_channel_t 比较的通道数 0–5 cc_value 比较值 nrf_timer_short_mask_t：技术器对应的编号 enable_int：使能或者禁止比较通道中断 Timer 使能函数 nrf_drv_timer_enable nrfx_timer_t 定义Timer句柄 代码移植 添加Timer头文件 #include &quot;nrf_drv_timer.h 添加库文件 nRF5_SDK_15.3.0_59ac345\modules\nrfx\drivers\include nrf_timer.c nRF5_SDK_15.3.0_59ac345\integration\nrfx\legacy nrf_drv_timer.h 修改sdk_config.h,增加Timer相关宏定义 修改Main主函数相关参数]]></content>
       <tags>
         <tag>BLE</tag>
       </tags>
@@ -53,7 +61,7 @@
     <url>%2F2019%2F10%2F09%2FIAR-Printf-Problem%2F</url>
     <content type="text"><![CDATA[IAR 遇到的问题 问题：IAR 在使用Printf的时候，编译会出现报错，报错信息为： Error[Li005]: no definition for &quot;__lseek&quot; [referenced from xfspos.o(dl7M_tlf.a)] Error[Li005]: no definition for &quot;__close&quot; [referenced from fclose.o(dl7M_tlf.a)] Error[Li005]: no definition for &quot;remove&quot; [referenced from fclose.o(dl7M_tlf.a)] 解决办法： IAR 中 options中General Options选项的Library Configuration选项卡中将None换成Semihosted 造成原因： None表示不调用底层链接库，若选择Semihosted或IAR breakpoint复选框免责在应用程序调试过程中使用DLIB库提供的底层调试接口。]]></content>
       <tags>
-        <tag>IAR</tag>
+        <tag>IDE</tag>
       </tags>
   </entry>
   <entry>
@@ -81,17 +89,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nRF APP DownLoad]]></title>
-    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
-    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; 1 nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
+    <title><![CDATA[nRF Sniffer User Guide]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
+    <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nRF Sniffer User Guide]]></title>
-    <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
-    <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
+    <title><![CDATA[nRF APP DownLoad]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
+    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; 1 nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>
@@ -110,19 +118,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[微信小程序学习笔记]]></title>
-    <url>%2F2018%2F12%2F23%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[This is Mini Program AN]]></content>
-      <tags>
-        <tag>Mini Program</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Markdown学习笔记]]></title>
     <url>%2F2018%2F12%2F23%2FMarkdown-Studydy-notes%2F</url>
     <content type="text"><![CDATA[基本用法 Markdown pad 2快捷键 加粗 Ctrl + B 斜体 Ctrl + I 引用 Ctrl + Q 插入链接 Ctrl + L 插入代码 Ctrl + K 插入图片 Ctrl + G 提升标题 Ctrl + H 有序列表 Ctrl + O 无序列表 Ctrl + U 横线 Ctrl + R 撤销 Ctrl + Z 重做 Ctrl + Y 添加表格md编辑 ` | 水果 | 价格 | 数量 | | ——– | —–: | :—-: | | 香蕉 | $1 | 5 | | 苹果 | $1 | 6 | | 草莓 | $1 | 7 |` 大神插件 介绍：总有大佬想提高生产速度，就比如Fan Feilong的exceltk 下载：mac: &amp;&amp; windows: 使用： 把您想要转换的Excel文件命名为 example.xls并放在下载之后的文件夹内 打开win的Cmd写入如下命令行 exceltk.exe -t json -xls example.xls 即可食用 鸣谢大佬的辛苦，在此引用，请多包涵 食用中的问题 问题：Markdown pad 2居然不能显示表格？？？？ 解决办法：Tools 》》 Options 》》Markdown 》》Markdown Processor：Markdown（Extra） 使用 vscode写markdown遇到的问题 问题：Updata到服务器之后，文件中文有乱码？？ 解决办法：使用记事本打开》》另存为》》编码 》》UTF-8 》》再次Hexo g -d]]></content>
       <tags>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序学习笔记]]></title>
+    <url>%2F2018%2F12%2F23%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[This is Mini Program AN]]></content>
+      <tags>
+        <tag>Mini Program</tag>
       </tags>
   </entry>
   <entry>
