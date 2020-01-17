@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="TangDabao_Blog">
 <meta property="og:description" content="Nordic TimerTimer的简单介绍Timer的模式 Timer  Counter  Timer的时钟源 Timer的时钟源来源于HFCLK，可以被4bit的分频寄存器分频处理； Ftimer = 16Mhz/2^PRESCALER 当Ftimer小于1Mhz的时候，系统会自动切换到PCLK 1Mhz，节省功耗；  PRESCALER：Timer模式下，用于分频  BITMODE：用于修改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-16T10:46:12.040Z">
+<meta property="og:updated_time" content="2020-01-17T01:15:41.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nordic_Timer">
 <meta name="twitter:description" content="Nordic TimerTimer的简单介绍Timer的模式 Timer  Counter  Timer的时钟源 Timer的时钟源来源于HFCLK，可以被4bit的分频寄存器分频处理； Ftimer = 16Mhz/2^PRESCALER 当Ftimer小于1Mhz的时候，系统会自动切换到PCLK 1Mhz，节省功耗；  PRESCALER：Timer模式下，用于分频  BITMODE：用于修改">
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  331 字
+                  341 字
                 </span>
               
 
@@ -444,6 +444,9 @@
 </li>
 <li>修改Main主函数相关参数</li>
 </ul>
+<h3 id="源代码参考"><a href="#源代码参考" class="headerlink" title="源代码参考"></a>源代码参考</h3><blockquote>
+<p><a href="https://github.com/Tangdabao/Nordic_Demo" target="_blank" rel="noopener">https://github.com/Tangdabao/Nordic_Demo</a></p>
+</blockquote>
 
       
     </div>
@@ -621,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nordic-Timer"><span class="nav-number">1.</span> <span class="nav-text">Nordic Timer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Timer的简单介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Timer的简单介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer的模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">Timer的模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer的时钟源"><span class="nav-number">1.1.2.</span> <span class="nav-text">Timer的时钟源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码分析"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer初始化函数-nrfx-timer-init"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Timer初始化函数 nrfx_timer_init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-将ms转换成计时器滴答函数-nrf-drv-timer-ms-to-ticks"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Timer 将ms转换成计时器滴答函数 nrf_drv_timer_ms_to_ticks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-将定时器设置为比较模式函数-nrf-drv-timer-extended-compare"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Timer 将定时器设置为比较模式函数 nrf_drv_timer_extended_compare</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-使能函数-nrf-drv-timer-enable"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">Timer 使能函数 nrf_drv_timer_enable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码移植"><span class="nav-number">1.1.4.</span> <span class="nav-text">代码移植</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nordic-Timer"><span class="nav-number">1.</span> <span class="nav-text">Nordic Timer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Timer的简单介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Timer的简单介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer的模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">Timer的模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer的时钟源"><span class="nav-number">1.1.2.</span> <span class="nav-text">Timer的时钟源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码分析"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer初始化函数-nrfx-timer-init"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Timer初始化函数 nrfx_timer_init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-将ms转换成计时器滴答函数-nrf-drv-timer-ms-to-ticks"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Timer 将ms转换成计时器滴答函数 nrf_drv_timer_ms_to_ticks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-将定时器设置为比较模式函数-nrf-drv-timer-extended-compare"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Timer 将定时器设置为比较模式函数 nrf_drv_timer_extended_compare</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-使能函数-nrf-drv-timer-enable"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">Timer 使能函数 nrf_drv_timer_enable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码移植"><span class="nav-number">1.1.4.</span> <span class="nav-text">代码移植</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源代码参考"><span class="nav-number">1.1.5.</span> <span class="nav-text">源代码参考</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
