@@ -88,7 +88,11 @@
 <meta property="og:description" content="STM32G0学习笔记 偶然机会得到一个STM32G0的开发板，现做一些笔记，仅个人保存所有 STM32G03系列介绍：STM32G0的定位 STM32G0系列定位为F0的升级版 相对于F0的优势 成本更低（相同配置下） 可靠性更好：结温125摄氏度 功耗更低“M0+内核 外设更丰富 ADC 0.4us Timer 2*Fcpu HSI精度更高 USB-C PD 更好的Flash.Ram比例">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tangdabao.github.io/2019/01/24/STM32G0学习笔记/stopWakeUpTime.png">
-<meta property="og:updated_time" content="2020-03-03T09:33:29.752Z">
+<meta property="og:image" content="https://tangdabao.github.io/2019/01/24/STM32G0学习笔记/setUartConfig.png">
+<meta property="og:image" content="https://tangdabao.github.io/2019/01/24/STM32G0学习笔记/sourceCodeModify.png">
+<meta property="og:image" content="https://tangdabao.github.io/2019/01/24/STM32G0学习笔记/addSourceCode.png">
+<meta property="og:image" content="https://tangdabao.github.io/2019/01/24/STM32G0学习笔记/testPng.png">
+<meta property="og:updated_time" content="2020-03-04T07:48:49.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STM32G0学习笔记">
 <meta name="twitter:description" content="STM32G0学习笔记 偶然机会得到一个STM32G0的开发板，现做一些笔记，仅个人保存所有 STM32G03系列介绍：STM32G0的定位 STM32G0系列定位为F0的升级版 相对于F0的优势 成本更低（相同配置下） 可靠性更好：结温125摄氏度 功耗更低“M0+内核 外设更丰富 ADC 0.4us Timer 2*Fcpu HSI精度更高 USB-C PD 更好的Flash.Ram比例">
@@ -354,7 +358,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  468 字
+                  685 字
                 </span>
               
 
@@ -370,7 +374,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -476,6 +480,53 @@
 </li>
 <li><p>参考代码：<a href="https://github.com/Tangdabao/STM32G03_Demo/tree/master/LAB_MANUAL_LESSON_7_STOP" target="_blank" rel="noopener">STOP Project</a></p>
 </li>
+</ul>
+<h2 id="STM32G0移植nr-micro-shell"><a href="#STM32G0移植nr-micro-shell" class="headerlink" title="STM32G0移植nr_micro_shell"></a>STM32G0移植nr_micro_shell</h2><h3 id="nr-micro-shell介绍"><a href="#nr-micro-shell介绍" class="headerlink" title="nr_micro_shell介绍"></a>nr_micro_shell介绍</h3><ul>
+<li>nr_micro_shell是一款小资源的与单片机交互的操作指令表，源于RT_Thread组件中的Finsh。</li>
+<li>nr_micro_shell具有很多的优势<ul>
+<li>占用资源小：Flash增加3832字节、RAM占用1104字节</li>
+<li>交互体验好</li>
+<li>扩展性好 <ul>
+<li>最多支持3条历史命令</li>
+<li>支持Tab补全</li>
+<li>命令行最大长度100</li>
+<li>最多10哥命令参数</li>
+<li>命令行现成堆栈512字节     </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="nr-micro-shell源码地址"><a href="#nr-micro-shell源码地址" class="headerlink" title="nr_micro_shell源码地址"></a>nr_micro_shell源码地址</h3><ul>
+<li><a href="https://gitee.com/nrush/nr_micro_shell" target="_blank" rel="noopener">nr_micro_shell</a></li>
+</ul>
+<h3 id="nr-micro-shell的移植"><a href="#nr-micro-shell的移植" class="headerlink" title="nr_micro_shell的移植"></a>nr_micro_shell的移植</h3><p>本历程基于STM32G031移植</p>
+<ul>
+<li>下载nr_micro_shell源码</li>
+<li>cubemx新建一个STM32G0工程，初始化UART功能并且使能UART中断</li>
+</ul>
+<hr>
+<img src="/2019/01/24/STM32G0学习笔记/setUartConfig.png" title="{初始化UART}">
+<ul>
+<li>复制nr_micro_shell源文件到ST库文件内，并且添加到Keil工程内</li>
+</ul>
+<hr>
+<img src="/2019/01/24/STM32G0学习笔记/sourceCodeModify.png" title="{添加源文件}">
+<ul>
+<li>主函数内添加UART_IT接收函数</li>
+</ul>
+<hr>
+<img src="/2019/01/24/STM32G0学习笔记/addSourceCode.png" title="{添加显示代码}">
+<ul>
+<li>测试截图</li>
+</ul>
+<hr>
+<img src="/2019/01/24/STM32G0学习笔记/testPng.png" title="{测试截图}">
+<ul>
+<li>参考代码：<a href="https://github.com/Tangdabao/STM32G03_Demo/tree/master/LAB_MANUAL_LESSON_8_Shell" target="_blank" rel="noopener">Shell Project</a></li>
+</ul>
+<h3 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h3><ul>
+<li>感谢<a href="https://gitee.com/nrush" target="_blank" rel="noopener">Nrush</a>作者无私奉献的公开代码，在此引用移植，仅供个人学习使用</li>
 </ul>
 
       
@@ -654,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#STM32G0学习笔记"><span class="nav-number">1.</span> <span class="nav-text">STM32G0学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03系列介绍："><span class="nav-number">1.1.</span> <span class="nav-text">STM32G03系列介绍：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#STM32G0的定位"><span class="nav-number">1.1.1.</span> <span class="nav-text">STM32G0的定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的ADC"><span class="nav-number">1.2.</span> <span class="nav-text">STM32G03的ADC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的Flash"><span class="nav-number">1.3.</span> <span class="nav-text">STM32G03的Flash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的IAP"><span class="nav-number">1.4.</span> <span class="nav-text">STM32G03的IAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的PWM"><span class="nav-number">1.5.</span> <span class="nav-text">STM32G03的PWM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的TIMER"><span class="nav-number">1.6.</span> <span class="nav-text">STM32G03的TIMER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的LPUART"><span class="nav-number">1.7.</span> <span class="nav-text">STM32G03的LPUART</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的UART"><span class="nav-number">1.8.</span> <span class="nav-text">STM32G03的UART</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的STOP模式-amp-唤醒时间"><span class="nav-number">1.9.</span> <span class="nav-text">STM32G03的STOP模式&amp;唤醒时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式介绍"><span class="nav-number">1.9.1.</span> <span class="nav-text">模式介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试实验"><span class="nav-number">1.9.2.</span> <span class="nav-text">测试实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验思路-amp-代码"><span class="nav-number">1.9.3.</span> <span class="nav-text">实验思路&amp;代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结果"><span class="nav-number">1.9.4.</span> <span class="nav-text">实验结果</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#STM32G0学习笔记"><span class="nav-number">1.</span> <span class="nav-text">STM32G0学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03系列介绍："><span class="nav-number">1.1.</span> <span class="nav-text">STM32G03系列介绍：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#STM32G0的定位"><span class="nav-number">1.1.1.</span> <span class="nav-text">STM32G0的定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的ADC"><span class="nav-number">1.2.</span> <span class="nav-text">STM32G03的ADC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的Flash"><span class="nav-number">1.3.</span> <span class="nav-text">STM32G03的Flash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的IAP"><span class="nav-number">1.4.</span> <span class="nav-text">STM32G03的IAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的PWM"><span class="nav-number">1.5.</span> <span class="nav-text">STM32G03的PWM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的TIMER"><span class="nav-number">1.6.</span> <span class="nav-text">STM32G03的TIMER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的LPUART"><span class="nav-number">1.7.</span> <span class="nav-text">STM32G03的LPUART</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的UART"><span class="nav-number">1.8.</span> <span class="nav-text">STM32G03的UART</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G03的STOP模式-amp-唤醒时间"><span class="nav-number">1.9.</span> <span class="nav-text">STM32G03的STOP模式&amp;唤醒时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式介绍"><span class="nav-number">1.9.1.</span> <span class="nav-text">模式介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试实验"><span class="nav-number">1.9.2.</span> <span class="nav-text">测试实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验思路-amp-代码"><span class="nav-number">1.9.3.</span> <span class="nav-text">实验思路&amp;代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结果"><span class="nav-number">1.9.4.</span> <span class="nav-text">实验结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32G0移植nr-micro-shell"><span class="nav-number">1.10.</span> <span class="nav-text">STM32G0移植nr_micro_shell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nr-micro-shell介绍"><span class="nav-number">1.10.1.</span> <span class="nav-text">nr_micro_shell介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nr-micro-shell源码地址"><span class="nav-number">1.10.2.</span> <span class="nav-text">nr_micro_shell源码地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nr-micro-shell的移植"><span class="nav-number">1.10.3.</span> <span class="nav-text">nr_micro_shell的移植</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#鸣谢"><span class="nav-number">1.10.4.</span> <span class="nav-text">鸣谢</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -688,7 +739,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.1k</span>
+    <span title="Site words total count">7.3k</span>
   
 </div>
 
