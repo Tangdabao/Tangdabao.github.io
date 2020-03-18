@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MeshProfile]]></title>
+    <url>%2F2020%2F03%2F16%2FMeshProfile%2F</url>
+    <content type="text"><![CDATA[Mesh ProfileV 1.0.1 translate By Tyler 1 介绍蓝牙网络配置文件规范定义SIG mesh的基本要求，用来实现低功耗蓝牙的无线网络解决方案 1.1 一致性如果符合本规范，那么需要按照指定的方式实现此规范内的所有功能。这也适用于其他支持的可选或者条件功能 1.2 蓝牙规范一致性本规范必须遵循至少V5.0以上的蓝牙规范 1.3 技术术语1.3.1 技术术语规约SIG蓝牙组织已经定义了下面一些词语所蕴含的意义：shall、must、will、should、may、can、is和note。请参看源文件 1.3.2 为将来保留如果数据包、协议单元和其他数据结构体有被描述为“为将来保留”，那么除非有特殊说明，那么这些位都会被赋值为0 1.3.3 只读数据如果数据包、参数内部有标记为被禁止的，那么此部分为只读或者禁止区域 1.3.4 缩略词 ACK：Acknowledgment AD:Advertising Data AES：Advanced Encryption Standard AID：Application Key Identifier AKF：Application Key Flag ASCII：American Standard Code for Information Interchange 。。。。 1.3.5 术语 Adress：一个或多个节点中的元素的标识 Configuration Client：实现配置客户端模型的节点 Destination：消息发送地址 Device：未配置到Mesh网络内的设备 Element：每个节点至少一个元素。元素是可寻的实体地址 Message：从源地址发送到目标地址的8进制信息 Neighbors：2.4G范围内的节点 Network：公共地址内的一组节点 Node：一个被允许加入的设备 Provision：认证并将基本信息（单播地址/网络密钥）提供给设备的过程，必须配置设备才能成为节点。设置之后，节点可以在网络中发送或者接受消息 Provisioner：能将未配置的设备添加到网络内的节点 Relay：接收并重新转发消息的节点 Source：发送消息的地址 State：公开元素状态的值0/1 Subnet：可以互相通信的一组节点 2 Mesh 网络架构本章节主要描述Mesh网络预览和分层系统的介绍 2.1 Mesh网络层介绍mesh 网络层介绍如图2.1所示 2.1.1 Model LayerModel Layer定义了一些标准模型，用于典型设备用户场景。更详细的模型介绍可以参考Mesh Model Specification。现有的主要是照明与传感器模型 2.1.2 Foundation Model layer Foundation Model layer定义了状态、消息、模型请求配置、管理网络 2.2.3 Access layer]]></content>
+      <tags>
+        <tag>mesh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[BLE小知识点]]></title>
     <url>%2F2020%2F03%2F05%2FBLE%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9%2F</url>
     <content type="text"><![CDATA[BLE小知识点： 1.beacon广播包的最大长度：31字节数据 2.蓝牙数据传输包： Core4.0&amp;4.1 的最大的Payload：27字节。Payload（27字节） = Header（4字节）+MTU（23字节），其中MTU（23字节） = Opcode（1字节） +AttHandle（2字节）+AttValue（20字节） Core4.2：Payload（251字节） =Header（4字节） + MTU（247字节），其中MTU（247字节） = Opcode（1字节） +AttHandle（2字节）+AttValue（243字节）]]></content>
@@ -110,17 +118,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nRF Sniffer User Guide]]></title>
-    <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
-    <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
+    <title><![CDATA[nRF APP DownLoad]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
+    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; 1 nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nRF APP DownLoad]]></title>
-    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
-    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; 1 nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
+    <title><![CDATA[nRF Sniffer User Guide]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
+    <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>
