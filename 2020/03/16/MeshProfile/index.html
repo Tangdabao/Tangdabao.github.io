@@ -88,7 +88,7 @@
 <meta property="og:description" content="Mesh ProfileV 1.0.1  translate By Tyler 1 介绍蓝牙网络配置文件规范定义SIG mesh的基本要求，用来实现低功耗蓝牙的无线网络解决方案 1.1 一致性如果符合本规范，那么需要按照指定的方式实现此规范内的所有功能。这也适用于其他支持的可选或者条件功能 1.2 蓝牙规范一致性本规范必须遵循至少V5.0以上的蓝牙规范 1.3 技术术语1.3.1 技术术语规约SI">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tangdabao.github.io/2020/03/16/MeshProfile/Blog/blog/source/_posts/MeshProfile/MeshProfileLayer.png">
-<meta property="og:updated_time" content="2020-03-18T03:04:32.460Z">
+<meta property="og:updated_time" content="2020-03-20T09:17:17.518Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MeshProfile">
 <meta name="twitter:description" content="Mesh ProfileV 1.0.1  translate By Tyler 1 介绍蓝牙网络配置文件规范定义SIG mesh的基本要求，用来实现低功耗蓝牙的无线网络解决方案 1.1 一致性如果符合本规范，那么需要按照指定的方式实现此规范内的所有功能。这也适用于其他支持的可选或者条件功能 1.2 蓝牙规范一致性本规范必须遵循至少V5.0以上的蓝牙规范 1.3 技术术语1.3.1 技术术语规约SI">
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  674 字
+                  1.5k 字
                 </span>
               
 
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  5 分钟
                 </span>
               
             </div>
@@ -436,7 +436,33 @@
 <p><img src="//tangdabao.github.io/2020/03/16/MeshProfile/Blog\blog\source\_posts\MeshProfile\MeshProfileLayer.png" alt="MeshProfileLayer"></p>
 <h4 id="2-1-1-Model-Layer"><a href="#2-1-1-Model-Layer" class="headerlink" title="2.1.1 Model Layer"></a>2.1.1 Model Layer</h4><p>Model Layer定义了一些标准模型，用于典型设备用户场景。更详细的模型介绍可以参考Mesh Model Specification。现有的主要是照明与传感器模型</p>
 <h4 id="2-1-2-Foundation-Model-layer"><a href="#2-1-2-Foundation-Model-layer" class="headerlink" title="2.1.2  Foundation Model layer"></a>2.1.2  Foundation Model layer</h4><p> Foundation Model layer定义了状态、消息、模型请求配置、管理网络</p>
-<h4 id="2-2-3-Access-layer"><a href="#2-2-3-Access-layer" class="headerlink" title="2.2.3 Access layer"></a>2.2.3 Access layer</h4>
+<h4 id="2-1-3-Access-layer"><a href="#2-1-3-Access-layer" class="headerlink" title="2.1.3 Access layer"></a>2.1.3 Access layer</h4><p>Access layer定义了高层的应用如何访问Uper transport 层。他定义了数据格式和与上层数据传输时的数据加密&amp;数据解密。并且查看网络密钥与程序密钥是否符合，如若符合转发数据到更高层</p>
+<h4 id="2-1-4-Upper-transport-layer"><a href="#2-1-4-Upper-transport-layer" class="headerlink" title="2.1.4 Upper transport layer"></a>2.1.4 Upper transport layer</h4><p>本协议层主要提供加密、解密、认证应用数据用于提供消息的机密性。它还定义了如何使用传输控制消息来管理节点之间的上层传输层，包括friend节点使用</p>
+<h4 id="2-1-5-Lower-transport-layer"><a href="#2-1-5-Lower-transport-layer" class="headerlink" title="2.1.5 Lower transport layer"></a>2.1.5 Lower transport layer</h4><p>本协议层定义了数据传输拼接重组，用于upper transport层或者其他节点之间的传输。分为控制消息与数据消息</p>
+<h4 id="2-1-6-Network-layer"><a href="#2-1-6-Network-layer" class="headerlink" title="2.1.6 Network layer"></a>2.1.6 Network layer</h4><p>本协议层定义了数据如何传输到每个节点或者每个元素。他定义了Bearer layer层的数据如何传输PDU的格式。定义了数据是否要中继/转发。数据的加解密也是在此层验证通过的</p>
+<h4 id="2-1-7-Bearer-layer"><a href="#2-1-7-Bearer-layer" class="headerlink" title="2.1.7 Bearer layer"></a>2.1.7 Bearer layer</h4><p>本协议层定义了两个节点之间的数据如何传输，现在有两种传输方式GATT承载、广播承载。将来会有更多的承载方式</p>
+<h3 id="2-2-Mesh网络操作概述"><a href="#2-2-Mesh网络操作概述" class="headerlink" title="2.2 Mesh网络操作概述"></a>2.2 Mesh网络操作概述</h3><p>mesh网络根据如下规格书定义：</p>
+<ul>
+<li>消息可以从一个节点发送到一个或者多个元素</li>
+<li>允许消息被转发、中继，达到远程通信的效果</li>
+<li>具有安全消息加密的功能，防止多种安全攻击</li>
+<li>在现有的设备上工作</li>
+<li>消息传递的实时性</li>
+<li>当一个或多个节点被移除或者停止的时候，整个网络保持要继续工作。</li>
+<li>能够兼容老版本，并且兼容新版本</li>
+</ul>
+<p>本规格书定义了一个基于泛洪式的mesh网络，通过广播通道来传输信息，达到其他节点接收到信息与转发信息的效果，达到扩展消息的效果。只要有足够大的网络存在，那么在Mesh网络内的任意一个设备就可以在任何时间发送任意的消息给到其他设备。有可能增加路由功能和最优路径的功能</p>
+<p>在Mesh网络中，本规范规定了多种防止消息被重复转发的方法。两种主要的方式是消息缓存与消息存活周期（TTL）</p>
+<p>网络内的消息缓存机制是节点中继的消息会被缓存到一个缓存列表内。当消息再次接收到，节点会检查消息是否在消息列表内，如果在，将会忽略此次的消息。如果不在，放到缓存列表内，用于下次接收消息的检查。但是因为消息的增加，缓存列表会有长度限制。</p>
+<p>每个消息内部包涵一个TTL值，TTL值限制了消息的转发次数。每次转发一次消息，TTL会减少1.TTL的最大值是127。当转发到0的时候，不在转发</p>
+<h4 id="2-2-1-网络与子网"><a href="#2-2-1-网络与子网" class="headerlink" title="2.2.1 网络与子网"></a>2.2.1 网络与子网</h4><p>一个Mesh网络是由4部分公共资源组成：</p>
+<ul>
+<li>用于标识消息地址与源地址的信息</li>
+<li>网络秘钥用于在Network layer层消息的加密与认证</li>
+<li>应用秘钥被用于Access layer层的加密与认证</li>
+<li>IV Index被使用在Networ内的生存周期</li>
+</ul>
+
       
     </div>
     
@@ -475,6 +501,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/16/VSCODE下使用githubgitee功能/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -553,7 +583,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -609,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mesh-Profile"><span class="nav-number">1.</span> <span class="nav-text">Mesh Profile</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-介绍"><span class="nav-number">1.1.</span> <span class="nav-text">1 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一致性"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-蓝牙规范一致性"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 蓝牙规范一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-技术术语"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 技术术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-技术术语规约"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">1.3.1 技术术语规约</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-为将来保留"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">1.3.2 为将来保留</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-只读数据"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">1.3.3 只读数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-4-缩略词"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">1.3.4 缩略词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-5-术语"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">1.3.5 术语</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Mesh-网络架构"><span class="nav-number">1.2.</span> <span class="nav-text">2 Mesh 网络架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Mesh网络层介绍"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 Mesh网络层介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-Model-Layer"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">2.1.1 Model Layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-Foundation-Model-layer"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">2.1.2  Foundation Model layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-Access-layer"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">2.2.3 Access layer</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mesh-Profile"><span class="nav-number">1.</span> <span class="nav-text">Mesh Profile</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-介绍"><span class="nav-number">1.1.</span> <span class="nav-text">1 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一致性"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-蓝牙规范一致性"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 蓝牙规范一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-技术术语"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 技术术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-技术术语规约"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">1.3.1 技术术语规约</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-为将来保留"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">1.3.2 为将来保留</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-只读数据"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">1.3.3 只读数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-4-缩略词"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">1.3.4 缩略词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-5-术语"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">1.3.5 术语</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Mesh-网络架构"><span class="nav-number">1.2.</span> <span class="nav-text">2 Mesh 网络架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Mesh网络层介绍"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 Mesh网络层介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-Model-Layer"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">2.1.1 Model Layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-Foundation-Model-layer"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">2.1.2  Foundation Model layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-Access-layer"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">2.1.3 Access layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-Upper-transport-layer"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">2.1.4 Upper transport layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-5-Lower-transport-layer"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">2.1.5 Lower transport layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-6-Network-layer"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">2.1.6 Network layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-7-Bearer-layer"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">2.1.7 Bearer layer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Mesh网络操作概述"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 Mesh网络操作概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-网络与子网"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2.2.1 网络与子网</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -643,7 +673,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.1k</span>
+    <span title="Site words total count">9.2k</span>
   
 </div>
 

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F16%2FVSCODE%E4%B8%8B%E4%BD%BF%E7%94%A8githubgitee%E5%8A%9F%E8%83%BD%2F</url>
+    <content type="text"><![CDATA[VSCODE下使用github/gitee功能本文主要介绍在vscode下使用gitee功能，github类似此处不再书写 gitee下增加仓库 在自己的gitee内新建仓库：c_project 在本地新建文件夹：c_project 123456mkdir c_projectcd c_projectgit initgit commit -m “first commit”git remote add origin https://gitee.com/TangDabao_181/C_Project.gitgit push -u origin master 在vscode内添加项目文件夹与文件 在vscode内打开自己的项目文件夹：vscode已经集成Git，因此可以自动绑定到你的仓库内 在vscode内添加.vsocde文件夹、添加.c文件、选择编译链 添加相关代码&amp;提交暂存&amp;推送 添加相关代码之后，vscode 在源代码管理界面会显示是否有修改（U） 在源代码管理界面（+）添加暂存：注意修改日志填写清楚，防止以后后悔 在编辑界面CTRL+SHIFT+P调用管理台：输入push，进行数据推送]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[MeshProfile]]></title>
     <url>%2F2020%2F03%2F16%2FMeshProfile%2F</url>
-    <content type="text"><![CDATA[Mesh ProfileV 1.0.1 translate By Tyler 1 介绍蓝牙网络配置文件规范定义SIG mesh的基本要求，用来实现低功耗蓝牙的无线网络解决方案 1.1 一致性如果符合本规范，那么需要按照指定的方式实现此规范内的所有功能。这也适用于其他支持的可选或者条件功能 1.2 蓝牙规范一致性本规范必须遵循至少V5.0以上的蓝牙规范 1.3 技术术语1.3.1 技术术语规约SIG蓝牙组织已经定义了下面一些词语所蕴含的意义：shall、must、will、should、may、can、is和note。请参看源文件 1.3.2 为将来保留如果数据包、协议单元和其他数据结构体有被描述为“为将来保留”，那么除非有特殊说明，那么这些位都会被赋值为0 1.3.3 只读数据如果数据包、参数内部有标记为被禁止的，那么此部分为只读或者禁止区域 1.3.4 缩略词 ACK：Acknowledgment AD:Advertising Data AES：Advanced Encryption Standard AID：Application Key Identifier AKF：Application Key Flag ASCII：American Standard Code for Information Interchange 。。。。 1.3.5 术语 Adress：一个或多个节点中的元素的标识 Configuration Client：实现配置客户端模型的节点 Destination：消息发送地址 Device：未配置到Mesh网络内的设备 Element：每个节点至少一个元素。元素是可寻的实体地址 Message：从源地址发送到目标地址的8进制信息 Neighbors：2.4G范围内的节点 Network：公共地址内的一组节点 Node：一个被允许加入的设备 Provision：认证并将基本信息（单播地址/网络密钥）提供给设备的过程，必须配置设备才能成为节点。设置之后，节点可以在网络中发送或者接受消息 Provisioner：能将未配置的设备添加到网络内的节点 Relay：接收并重新转发消息的节点 Source：发送消息的地址 State：公开元素状态的值0/1 Subnet：可以互相通信的一组节点 2 Mesh 网络架构本章节主要描述Mesh网络预览和分层系统的介绍 2.1 Mesh网络层介绍mesh 网络层介绍如图2.1所示 2.1.1 Model LayerModel Layer定义了一些标准模型，用于典型设备用户场景。更详细的模型介绍可以参考Mesh Model Specification。现有的主要是照明与传感器模型 2.1.2 Foundation Model layer Foundation Model layer定义了状态、消息、模型请求配置、管理网络 2.2.3 Access layer]]></content>
+    <content type="text"><![CDATA[Mesh ProfileV 1.0.1 translate By Tyler 1 介绍蓝牙网络配置文件规范定义SIG mesh的基本要求，用来实现低功耗蓝牙的无线网络解决方案 1.1 一致性如果符合本规范，那么需要按照指定的方式实现此规范内的所有功能。这也适用于其他支持的可选或者条件功能 1.2 蓝牙规范一致性本规范必须遵循至少V5.0以上的蓝牙规范 1.3 技术术语1.3.1 技术术语规约SIG蓝牙组织已经定义了下面一些词语所蕴含的意义：shall、must、will、should、may、can、is和note。请参看源文件 1.3.2 为将来保留如果数据包、协议单元和其他数据结构体有被描述为“为将来保留”，那么除非有特殊说明，那么这些位都会被赋值为0 1.3.3 只读数据如果数据包、参数内部有标记为被禁止的，那么此部分为只读或者禁止区域 1.3.4 缩略词 ACK：Acknowledgment AD:Advertising Data AES：Advanced Encryption Standard AID：Application Key Identifier AKF：Application Key Flag ASCII：American Standard Code for Information Interchange 。。。。 1.3.5 术语 Adress：一个或多个节点中的元素的标识 Configuration Client：实现配置客户端模型的节点 Destination：消息发送地址 Device：未配置到Mesh网络内的设备 Element：每个节点至少一个元素。元素是可寻的实体地址 Message：从源地址发送到目标地址的8进制信息 Neighbors：2.4G范围内的节点 Network：公共地址内的一组节点 Node：一个被允许加入的设备 Provision：认证并将基本信息（单播地址/网络密钥）提供给设备的过程，必须配置设备才能成为节点。设置之后，节点可以在网络中发送或者接受消息 Provisioner：能将未配置的设备添加到网络内的节点 Relay：接收并重新转发消息的节点 Source：发送消息的地址 State：公开元素状态的值0/1 Subnet：可以互相通信的一组节点 2 Mesh 网络架构本章节主要描述Mesh网络预览和分层系统的介绍 2.1 Mesh网络层介绍mesh 网络层介绍如图2.1所示 2.1.1 Model LayerModel Layer定义了一些标准模型，用于典型设备用户场景。更详细的模型介绍可以参考Mesh Model Specification。现有的主要是照明与传感器模型 2.1.2 Foundation Model layer Foundation Model layer定义了状态、消息、模型请求配置、管理网络 2.1.3 Access layerAccess layer定义了高层的应用如何访问Uper transport 层。他定义了数据格式和与上层数据传输时的数据加密&amp;数据解密。并且查看网络密钥与程序密钥是否符合，如若符合转发数据到更高层 2.1.4 Upper transport layer本协议层主要提供加密、解密、认证应用数据用于提供消息的机密性。它还定义了如何使用传输控制消息来管理节点之间的上层传输层，包括friend节点使用 2.1.5 Lower transport layer本协议层定义了数据传输拼接重组，用于upper transport层或者其他节点之间的传输。分为控制消息与数据消息 2.1.6 Network layer本协议层定义了数据如何传输到每个节点或者每个元素。他定义了Bearer layer层的数据如何传输PDU的格式。定义了数据是否要中继/转发。数据的加解密也是在此层验证通过的 2.1.7 Bearer layer本协议层定义了两个节点之间的数据如何传输，现在有两种传输方式GATT承载、广播承载。将来会有更多的承载方式 2.2 Mesh网络操作概述mesh网络根据如下规格书定义： 消息可以从一个节点发送到一个或者多个元素 允许消息被转发、中继，达到远程通信的效果 具有安全消息加密的功能，防止多种安全攻击 在现有的设备上工作 消息传递的实时性 当一个或多个节点被移除或者停止的时候，整个网络保持要继续工作。 能够兼容老版本，并且兼容新版本 本规格书定义了一个基于泛洪式的mesh网络，通过广播通道来传输信息，达到其他节点接收到信息与转发信息的效果，达到扩展消息的效果。只要有足够大的网络存在，那么在Mesh网络内的任意一个设备就可以在任何时间发送任意的消息给到其他设备。有可能增加路由功能和最优路径的功能 在Mesh网络中，本规范规定了多种防止消息被重复转发的方法。两种主要的方式是消息缓存与消息存活周期（TTL） 网络内的消息缓存机制是节点中继的消息会被缓存到一个缓存列表内。当消息再次接收到，节点会检查消息是否在消息列表内，如果在，将会忽略此次的消息。如果不在，放到缓存列表内，用于下次接收消息的检查。但是因为消息的增加，缓存列表会有长度限制。 每个消息内部包涵一个TTL值，TTL值限制了消息的转发次数。每次转发一次消息，TTL会减少1.TTL的最大值是127。当转发到0的时候，不在转发 2.2.1 网络与子网一个Mesh网络是由4部分公共资源组成： 用于标识消息地址与源地址的信息 网络秘钥用于在Network layer层消息的加密与认证 应用秘钥被用于Access layer层的加密与认证 IV Index被使用在Networ内的生存周期]]></content>
       <tags>
         <tag>mesh</tag>
       </tags>
@@ -32,7 +37,7 @@
   <entry>
     <title><![CDATA[Vscode-Hotkey]]></title>
     <url>%2F2020%2F01%2F16%2FVscode-Hotkey%2F</url>
-    <content type="text"><![CDATA[Vscode Code Software HotKey 函数跳转 ：ctrl+鼠标左键 代码格式化：shift + alt +f]]></content>
+    <content type="text"><![CDATA[Vscode Code Software HotKey 函数跳转 ：ctrl+鼠标左键 代码格式化：shift + alt +f 代码注释： 单行代码注释（//）：ctrl + / 多行代码注释（/ /）：Alt + Shift + A]]></content>
       <tags>
         <tag>IDE</tag>
       </tags>
@@ -118,17 +123,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nRF APP DownLoad]]></title>
-    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
-    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; 1 nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
+    <title><![CDATA[nRF Sniffer User Guide]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
+    <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nRF Sniffer User Guide]]></title>
-    <url>%2F2019%2F07%2F17%2FnRF_Sniffer_Um%2F</url>
-    <content type="text"><![CDATA[nRF Sniffer抓包工具使用教程 本文主要讲述nRF Sniffer的安装与使用过程，主要参考了官方的使用指南nRF Sniffer概述 nRF sniffer 是一款调试和学习低功耗蓝牙的应用工具，是由专业的Noridc退出的软件&amp;硬件工具。 蓝牙抓包工具分为两种： 一种只能抓广播信息的Dongle，可以抓取广播包，37、38、39广播信道的信息，这种工具比较广泛Cy、ST、TI等大厂商都有推出 另外一种是能监听蓝牙通信信息的Dongle，在连接之前可以查看、连接之后也可以。这类工具有利于工程师熟悉协议栈，也有利于查看空中的数据。市面上主要的有TI、Noridc两家。 nRF Sniffer硬件介绍 nRF52840 DK nRF52 DK nRF51 DK nRF51 Dongle（52840的Dongle不支持抓连接包，只能监听一些简单的数据信息）nRF Sniffer 软件介绍： nRF Sniffer V1:支持51系列的开发板，不支持52系列 nRF Sniffer V2：支持51、52系列的开发板 nRF Sniffer安装过程：需要的硬件（以下任选其一） nRF51 Development Kit (PCA10028) v1.0 or later and a micro USB cable nRF51 Dongle (PCA10031) nRF52 Development Kit (PCA10040) and a micro USB cable 需要的软件 Window、OS x、Linux nRF Sniffer software V2.X Wireshark v2.4.2 Segger Jlink Python V2.7.X pyserial V3.4 安装过程 配置wireshark Help &gt; About Wireshark 打开 About wireshark 找到Extcap path文件夹，双击打开根目录 把下载好的nRF Sniffer 软件包解压，放在Extcap path文件夹内 安装python 并检查版本&gt; python --version 安装 pyserial pip install pyserial Segger Jlink 下载DK固件 打开Jlink.exe 写入以下指令 erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\sniffer_pca10040_1c2a221.hex&quot;&gt;]]></content>
+    <title><![CDATA[nRF APP DownLoad]]></title>
+    <url>%2F2019%2F07%2F17%2FnRF_App_Download%2F</url>
+    <content type="text"><![CDATA[nRF芯片下载工具介绍 主要介绍几种下载方式，以及在使用过程中遇到的问题做一些记录DK Jlink固件更新有一些板子拿到手之后，Jlink的固件是丢失的，所以需要下载一下Jlink固件 如何进入Bootloader 模式： 按住板子上面的IF BOOT/RESET 上电 可以看到LD5是闪烁的（频率1s）、电脑上会多一个Boot的文件夹（注意，文件夹可能会消失，所以进入Boot模式之后，尽快下载） 如何更新Jlink固件： 官网下载Jlink的BIN文件：Interface MCU firmware 把下载好的bin文件拖到Boot文件夹内 Software、App下载： Jlink下载： erase nRF51422_XXAC/nRF52832_XXAA S 1000 1loadfile &quot;D:\Software\nrfsniffer\hex\XXXX.hex&quot;&gt; 1 nrfjprog.exe下载 在固件所在的文件夹 shift+右键，选择打开cmd.exe 敲入如下代码 nrfjprog.exe –eraseall -f NRF52 nrfjprog.exe –program XXX.hex –verify -f NRF52 nrfjprog.exe –reset -f NRF52 nRF connect下载 add app：Programmer Launch Programmer 左上角选择你的Device 右下角选择Read、Write]]></content>
       <tags>
         <tag>nordic</tag>
       </tags>
